@@ -1,9 +1,22 @@
+@font-face {
+  font-family: Hebden Grotesque;
+  src: url("../assets/typography/Hebden_Grotesque.ttf") format('ttf')
+}
+@font-face {
+  font-family: Andale Mono;
+  src: url("../assets/typography/Andale_Mono.ttf") format('ttf')
+}
+@font-face {
+  font-family: Andale Mono Italic;
+  src: url("../assets/typography/Andale_Mono_Italic.ttf") format('ttf')
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic, sans-serif;
+  
 }
 
 a {
