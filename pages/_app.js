@@ -1,7 +1,13 @@
-import '../styles/globals.css'
+import TopBar from 'components/modules/TopBar';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <TopBar />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
