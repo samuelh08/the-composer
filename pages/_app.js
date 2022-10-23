@@ -60,11 +60,12 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }) {
-  return;
-  <ThemeProvider theme={theme}>
-    <TopBar />
-    <Component {...pageProps} />
-  </ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <TopBar />
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
 }
 
 export default MyApp;
