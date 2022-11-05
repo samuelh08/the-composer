@@ -37,3 +37,22 @@ a {
     background: black;
   }
 }
+
+.footer-title {
+  background: linear-gradient(#fff 0 0) left / var(--p, 0) no-repeat;
+  transition: .8s, background-position 0s;
+}
+
+.footer-title .css-10pt980-MuiTypography-root {
+  transition: .8s, color .6s;
+}
+
+.footer-title:hover, .footer-title:hover .css-10pt980-MuiTypography-root{
+  --p: 100%;
+  color: #000;
+}
+
+#contact-footer:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

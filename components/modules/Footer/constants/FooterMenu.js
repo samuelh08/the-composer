@@ -1,19 +1,23 @@
 const Content = [
   {
     title: 'work',
-    path: '/work'
+    path: '/work',
+    sub: 'listen'
   },
   {
     title: 'services',
-    path: '/services'
+    path: '/services',
+    sub: 'skillS'
   },
   {
     title: 'about',
-    path: '/about'
+    path: '/about',
+    sub: 'know me'
   },
   {
     title: 'contact',
-    path: '/contact'
+    path: '/contact',
+    sub: 'say hello'
   },
 ]
 
