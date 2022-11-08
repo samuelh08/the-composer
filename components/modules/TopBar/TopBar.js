@@ -1,35 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { AppBar, Box, Grid, Link } from '@mui/material';
 
 import SymbolLogo1 from 'assets/img/EddBeatLogo-01.svg';
 import SymbolLogo2 from 'assets/img/EddBeatLogo-02.svg';
-import TwitterIconGray from 'assets/img/TwitterIconGray.svg';
-import TwitterIconWhite from 'assets/img/TwitterIconWhite.svg';
-import InstagramIconGray from 'assets/img/InstagramIconGray.svg';
-import InstagramIconWhite from 'assets/img/InstagramIconWhite.svg';
-import BandcampIconGray from 'assets/img/BandcampIconGray.svg';
-import BandcampIconWhite from 'assets/img/BandcampIconWhite.svg';
-import SoundcloudIconGray from 'assets/img/SoundcloudIconGray.svg';
-import SoundcloudIconWhite from 'assets/img/SoundcloudIconWhite.svg';
 import Selected from 'assets/img/SeleccionPaginaBanner-01.svg';
 import TopBarMenu from './constants/TopBarMenu';
+import TopBarIcons from './constants/TopBarIcons';
 
 const TopBar = () => {
   const [onIcon, setOnIcon] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <AppBar
       position="sticky"
       sx={{
         backgroundColor: '#000000',
-        height: '71.8px',
+        height: scrollY === 0 ? '104px' : '72px',
+        transition: 'height 1s ease',
         justifyContent: 'center',
       }}
     >
       <Grid container alignItems="center">
         <Grid item xs={4}>
-          <Box display="flex" justifyContent="start" alignItems="end">
+          <Box
+            display="flex"
+            justifyContent="start"
+            alignItems="end"
+            marginBottom={1}
+          >
             {TopBarMenu.map((item, i) => {
               return (
                 <Grid
@@ -86,78 +100,28 @@ const TopBar = () => {
         <Grid item xs={4}>
           <Box marginRight={6}>
             <Grid container spacing={4} justifyContent="end">
-              <Grid item>
-                <Link href="https://soundcloud.com/eddbeatmusic">
-                  <Image
-                    src={
-                      activeItem === 'soundcloud'
-                        ? SoundcloudIconWhite
-                        : SoundcloudIconGray
-                    }
-                    alt="Soundcloud"
-                    onMouseEnter={() => {
-                      setActiveItem('soundcloud');
-                    }}
-                    onMouseLeave={() => {
-                      setActiveItem(null);
-                    }}
-                  />
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="https://eddbeatmusic.bandcamp.com/">
-                  <Image
-                    src={
-                      activeItem === 'bandcamp'
-                        ? BandcampIconWhite
-                        : BandcampIconGray
-                    }
-                    alt="Bandcamp"
-                    onMouseEnter={() => {
-                      setActiveItem('bandcamp');
-                    }}
-                    onMouseLeave={() => {
-                      setActiveItem(null);
-                    }}
-                  />
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="https://www.instagram.com/eddbeatmusic_/">
-                  <Image
-                    src={
-                      activeItem === 'instagram'
-                        ? InstagramIconWhite
-                        : InstagramIconGray
-                    }
-                    alt="Instagram"
-                    onMouseEnter={() => {
-                      setActiveItem('instagram');
-                    }}
-                    onMouseLeave={() => {
-                      setActiveItem(null);
-                    }}
-                  />
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="https://twitter.com/eddbeatmusic">
-                  <Image
-                    src={
-                      activeItem === 'twitter'
-                        ? TwitterIconWhite
-                        : TwitterIconGray
-                    }
-                    alt="Twitter"
-                    onMouseEnter={() => {
-                      setActiveItem('twitter');
-                    }}
-                    onMouseLeave={() => {
-                      setActiveItem(null);
-                    }}
-                  />
-                </Link>
-              </Grid>
+              {TopBarIcons.map((item, i) => {
+                return (
+                  <Grid item key={i}>
+                    <Link href={item.path}>
+                      <Image
+                        alt={item.title}
+                        src={
+                          activeItem === item.title
+                            ? item.whiteIcon
+                            : item.grayIcon
+                        }
+                        onMouseEnter={() => {
+                          setActiveItem(item.title);
+                        }}
+                        onMouseLeave={() => {
+                          setActiveItem(null);
+                        }}
+                      />
+                    </Link>
+                  </Grid>
+                );
+              })}
             </Grid>
           </Box>
         </Grid>
