@@ -1,14 +1,19 @@
+import {useRef} from 'react';
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+
 import FooterMenu from './constants/FooterMenu';
 
 const Footer = () => {
   const { pathname } = useRouter()
+  const clipboardRef = useRef(null)
 
   const logo = require('assets/img/SymbolLogo-01.svg');
 
@@ -23,10 +28,14 @@ const Footer = () => {
         {FooterMenu.map((item, i) => {
           return <Grid item xs={12} sx={{ borderBottom: '1px solid white', paddingLeft: '8%', cursor: 'pointer'}} className='footer-title' key={i}>
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Typography variant="h6" color='primary' sx={{ pr: 5,textTransform: 'uppercase' }}>{item.title}</Typography>
+              <Typography variant="h6" color='primary' sx={{ pr: 5,textTransform: 'uppercase' }}>
+                {item.title}
+              </Typography>
               <Box 
                 sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '173.783px', height: '116.7278px', borderRadius: '50%', border: '1px solid black'}}>
-                <Typography variant="subtitle5" color='secondary' sx={{ textTransform: 'uppercase' }}>{item.sub}</Typography>
+                <Typography variant="subtitle5" color='secondary' sx={{ textTransform: 'uppercase' }}>
+                  {item.sub}
+                </Typography>
               </Box>
             </Box>
           </Grid> 
@@ -36,13 +45,14 @@ const Footer = () => {
             <Image src={logo} alt="Eduardo's Logo" height='150%'/>
           </Grid>
           <Grid item container xs={12} md={6}>
-            <Grid xs={7}>
+            <Grid item xs={7}>
               <Typography variant='subtitle4' color='white'>Drop me a line</Typography>
               <Typography
                 color='white'
                 sx={{ overflowWrap: 'break-word', paddingTop: 2}}
                 variant='h6'
                 id='contact-footer'
+                ref={clipboardRef}
                 onClick={() => handleClipBoard()}
               >
                 <span>
@@ -54,7 +64,7 @@ const Footer = () => {
                 </span>
               </Typography>
             </Grid>
-            <Grid xs={5}>
+            <Grid item xs={5}>
               <Stack spacing={2}>
                 <Link
                   variant='subtitle4'
@@ -102,15 +112,22 @@ const Footer = () => {
                 </Link>
               </Stack>
             </Grid>
-            <Grid xs={12} sx={{paddingTop: 6}}>
-              <Typography variant='subtitle4' sx={{color: 'rgba(255, 255, 255, 0.16)'}}>&copy; 2022 Eduardo Hincapie - All rights reserved</Typography>
+            <Grid item xs={12} sx={{paddingTop: 6}}>
+              <Typography variant='subtitle4' sx={{color: 'rgba(255, 255, 255, 0.16)'}}>
+                &copy; 2022 Eduardo Hincapie - All rights reserved
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
+      <Box
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '173.783px', height: '116.7278px', borderRadius: '50%', border: '1px solid white' }}>
+        <Typography variant="subtitle5" color='primary' sx={{ textTransform: 'uppercase', textAlign:'center' }}>
+          Copied to ClipBoard
+        </Typography>
+      </Box>
     </Box>
   )
-
 };
 
 export default Footer
