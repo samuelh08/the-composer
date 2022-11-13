@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useRef, useState, useEffect} from 'react';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -10,17 +10,29 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import FooterMenu from './constants/FooterMenu';
+import { useTheme } from '@mui/material/styles';
 
 const Footer = () => {
-  const { pathname } = useRouter()
-  const clipboardRef = useRef(null)
+  const theme = useTheme();
+  const { pathname } = useRouter();
+  const clipboardRef = useRef(null);
+  const [activeClipBoard, setActiveClipBoard] = useState(false); 
 
   const logo = require('assets/img/SymbolLogo-01.svg');
 
   const handleClipBoard = () => {
     navigator.clipboard.writeText('eddbeatmusic.contact@gmail.com');
-
+    setActiveClipBoard(true);
   }
+
+  useEffect(() => {
+    activeClipBoard && setTimeout(() => {
+      console.log('despues de un segundo')
+      setActiveClipBoard(false);
+    }, 2000)
+
+    console.log(clipboardRef.current.offsetTop)
+  }, [activeClipBoard])
 
   return (
     <Box bgcolor="#000">
@@ -121,8 +133,26 @@ const Footer = () => {
         </Grid>
       </Grid>
       <Box
-        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '173.783px', height: '116.7278px', borderRadius: '50%', border: '1px solid white' }}>
-        <Typography variant="subtitle5" color='primary' sx={{ textTransform: 'uppercase', textAlign:'center' }}>
+        sx={{ 
+          visibility: activeClipBoard ? 'visible' : 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '173.783px',
+          height: '116.7278px',
+          borderRadius: '50%',
+          border: '1px solid white',
+          textAlign:'center',
+          position: 'absolute',
+          top: clipboardRef.current && clipboardRef.current.offsetTop + 'px',
+          right: clipboardRef.current && clipboardRef.current.offsetWidth + 'px',
+          zIndex: '50',
+          backgroundColor: theme.palette.secondary.main
+        }}
+        className={activeClipBoard ? 'clip-board' : ''}
+      >
+        <Typography variant="subtitle5" color='primary' sx={{ textTransform: 'uppercase'
+      }}>
           Copied to ClipBoard
         </Typography>
       </Box>

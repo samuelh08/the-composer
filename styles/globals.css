@@ -15,8 +15,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic, sans-serif;
-  
+  font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic;
 }
 
 a {
@@ -55,4 +54,21 @@ a {
 #contact-footer:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.clip-board {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: clip-fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes clip-fadeIn {
+  from {opacity: 0;}
+  to {opacity: 0.7;}
+}
+
+@keyframes clip-fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }
