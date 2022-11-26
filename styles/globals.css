@@ -15,8 +15,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic, sans-serif;
-  
+  font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic;
 }
 
 a {
@@ -36,4 +35,49 @@ a {
     color: white;
     background: black;
   }
+}
+
+.footer-title {
+  background: linear-gradient(#fff 0 0) left / var(--p, 0) no-repeat;
+  transition: .8s, background-position 0s;
+}
+
+.active-footer {
+  background: white;
+  color: #000;
+}
+
+.active-footer .css-10pt980-MuiTypography-root {
+  color: #000;
+}
+
+.footer-title .css-10pt980-MuiTypography-root {
+  transition: .8s, color .6s;
+}
+
+.footer-title:hover, .footer-title:hover .css-10pt980-MuiTypography-root{
+  --p: 100%;
+  color: #000;
+}
+
+#contact-footer:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clip-board {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: clip-fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes clip-fadeIn {
+  from {opacity: 0;}
+  to {opacity: 0.7;}
+}
+
+@keyframes clip-fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }
