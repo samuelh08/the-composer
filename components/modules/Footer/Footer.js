@@ -13,6 +13,7 @@ import FooterMenu from './constants/FooterMenu';
 import { useTheme } from '@mui/material/styles';
 
 const Footer = () => {
+  //TODO: navegate when pages are ready
   const theme = useTheme();
   const { pathname } = useRouter();
   const clipboardRef = useRef(null);
@@ -38,7 +39,7 @@ const Footer = () => {
     <Box bgcolor="#000">
       <Grid container sx={{paddingBottom: 6}}>
         {FooterMenu.map((item, i) => {
-          return <Grid item xs={12} sx={{ borderBottom: '1px solid white', paddingLeft: '8%', cursor: 'pointer'}} className='footer-title' key={i}>
+          return <Grid item xs={12} sx={{ borderBottom: '1px solid white', paddingLeft: '8%', cursor: pathname === item.path ? '' : 'pointer'}} className={pathname === item.path ? 'active-footer' : 'footer-title'} key={i}>
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <Typography variant="h6" color='primary' sx={{ pr: 5,textTransform: 'uppercase' }}>
                 {item.title}
