@@ -12,7 +12,7 @@ const Components = () => {
       <TopBar />
       <Carousel />
       <Box bgcolor="#000">
-        <Grid container>
+        <Grid container justifyContent='center'>
           <Grid xs={6} sx={{height: '100%'}}>
             <LP/>
           </Grid>

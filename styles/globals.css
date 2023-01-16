@@ -91,37 +91,125 @@ a {
   background: url('../assets/img/VINILO.png') no-repeat;
   background-position: center;
   background-size: contain;
-  transition: rotation-out 5s;
+  transition: animation 5s reverse;
 }
 
 .lp-component:hover .lp-disc{
   cursor: pointer;
-  animation: rotation 5s infinite linear, ;
+  animation: rotation 5s infinite linear;
   -webkit-animation: rotation 5s infinite linear;
   -moz-animation: rotation 5s infinite linear;
 }
 
-@keyframes rotation {
-  0% {
-    transform:rotate(0deg);
+.lp-component:hover .left-text{
+  animation: movingDown 1s;
+  -webkit-animation: movingDown 1s;
+  padding-top: 36.6%;
+}
+
+.lp-component:hover .right-text{
+  animation: movingUp 1s;
+  -webkit-animation: movingUp 1s;
+  padding-top: 36.6%;
+}
+
+.left-text{
+  transition: padding-top 1s .6s;
+}
+
+.right-text{
+  transition: padding-top 1s .6s;
+}
+
+.text-left-underscore {
+  background-image: linear-gradient(#fff 0 0);
+  background-size: 200% .08em; /* .08em is our fixed height, use what you want  */
+  background-position: 200% 100%;
+  background-repeat: no-repeat;
+  transition: background-position .2s .3s;
+}
+
+.lp-component:hover .text-left-underscore{
+  transition: background-position .2s 0.9s;
+  background-position: 100% 100%;
+}
+
+.text-center-underscore {
+  background-image: linear-gradient(#fff 0 0);
+  background-size: 200% .08em; /* .08em is our fixed height, use what you want  */
+  background-position: 200% 100%;
+  background-repeat: no-repeat;
+  transition: background-position .3s .1s;
+  position:relative;
+  z-index: 50;
+}
+
+.lp-component:hover .text-center-underscore{
+  transition: background-position .3s 1s;
+  background-position: 100% 100%;
+}
+
+.text-right-underscore {
+  background-image: linear-gradient(#fff 0 0);
+  background-size: 200% .08em; /* .08em is our fixed height, use what you want  */
+  background-position: 200% 100%;
+  background-repeat: no-repeat;
+  transition: background-position .2s;
+  position:relative;
+  z-index: 50;
+}
+
+.lp-component:hover .text-right-underscore{
+  transition: background-position .2s 1.2s;
+  background-position: 100% 100%;
+}
+
+@keyframes movingDown {
+  from {
+    padding-top: 8%;
   }
+  to {
+    padding-top: 36.6%;
+  }
+}
+
+@-webkit-keyframes movingDown {
+  0% {
+    padding-top: 8%;
+  }
+  100% {
+    padding-top: 36.6%;
+  }
+}
+
+@keyframes movingUp {
+  from {
+    padding-top: 67%;
+  }
+  to {
+    padding-top: 36.6%;
+  }
+}
+
+@-webkit-keyframes movingUp {
+  0% {
+    padding-top: 67%;
+  }
+  100% {
+    padding-top: 36.6%;
+  }
+}
+
+@keyframes rotation {
   100% {
     transform:rotate(360deg)
   }
 }
 
-@keyframes rotation-out {
-  to {
-    transform:rotate(360deg)
-  }
-}
-
 @-webkit-keyframes rotation {
-  from {-webkit-transform:rotate(0deg);}
-  to {  -webkit-transform:rotate(360deg);}
+  100% {-webkit-transform:rotate(360deg);}
 }
 
 @-moz-keyframes rotation {
-  from {-moz-transform:rotate(0deg);}
-  to {  -moz-transform:rotate(360deg);}
+  100% {-moz-transform:rotate(360deg);}
 }
