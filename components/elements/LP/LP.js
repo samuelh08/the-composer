@@ -16,7 +16,7 @@ const LP = () => {
           ALL
         </Typography>
       </Grid>
-      <Grid xs={2} paddingTop='67%' className='right-text'>
+      <Grid item xs={2} paddingTop='67%' className='right-text'>
         <Typography variant='subtitle2' color='primary' align='left' className='text-right-underscore'>
           MUSIC
         </Typography>
