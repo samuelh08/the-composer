@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect} from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -59,9 +59,9 @@ const Footer = () => {
           </Grid>
           <Grid item container xs={12} md={6}>
             <Grid item xs={7}>
-              <Typography variant='subtitle4' color='white'>Drop me a line</Typography>
+              <Typography variant='subtitle4' color='primary'>Drop me a line</Typography>
               <Typography
-                color='white'
+                color='primary'
                 sx={{ overflowWrap: 'break-word', paddingTop: 2}}
                 variant='h6'
                 id='contact-footer'
