@@ -8,7 +8,6 @@ const Playlist = () => {
         <Grid item xs={6}></Grid>
         <Grid item xs={6}>
           <Typography variant="h6">Playlist Preview</Typography>
-          {/* <Image /> */}
         </Grid>
       </Grid>
     </>

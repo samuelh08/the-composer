@@ -15,17 +15,21 @@ const Carousel = () => {
   const carousel = useRef(null);
   const content = useRef(null);
 
+  addEventListener('resize', (event) => {
+    carousel.current.scrollLeft = slide * (window.innerWidth * 0.81);
+  });
+
   const handleClickNext = () => {
     setClicked('right');
     setSlide(slide + 1);
-    carousel.current.scrollLeft = (slide + 1) * 930;
+    carousel.current.scrollLeft = (slide + 1) * (window.innerWidth * 0.81);
     setTimeout(() => setClicked(null), 500);
   };
 
   const handleClickPrev = () => {
     setClicked('left');
     setSlide(slide - 1);
-    carousel.current.scrollLeft = (slide - 1) * 930;
+    carousel.current.scrollLeft = (slide - 1) * (window.innerWidth * 0.81);
     setTimeout(() => setClicked(null), 500);
   };
 
@@ -37,7 +41,7 @@ const Carousel = () => {
         alignItems="center"
         style={{ backgroundColor: '#000000' }}
       >
-        <Grid item xs={2} display="flex" justifyContent="center">
+        <Grid item xs={1} display="flex" justifyContent="center">
           <Box display={slide === 0 ? 'none' : 'block'}>
             <Image
               alt="previous"
@@ -53,10 +57,10 @@ const Carousel = () => {
             />
           </Box>
         </Grid>
-        <Grid item xs={8} display="flex" justifyContent="center">
+        <Grid item xs={10} display="flex" justifyContent="center">
           <Box
             id="wrapper"
-            style={{ width: '930px', maxWidth: '930px', position: 'relative' }}
+            style={{ width: '81vw', maxWidth: '81vw', position: 'relative' }}
           >
             <Box
               id="carousel"
@@ -80,8 +84,8 @@ const Carousel = () => {
                 {CarouselImages.map((item, index) => (
                   <Box
                     key={index}
-                    marginRight="10px"
-                    style={{ width: '300px', height: '300px' }}
+                    marginX="0.5vw"
+                    style={{ width: '26vw', height: '26vw' }}
                   >
                     <Image key={index} alt={item.title} src={item.image} />
                   </Box>
@@ -90,7 +94,7 @@ const Carousel = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={2} display="flex" justifyContent="center">
+        <Grid item xs={1} display="flex" justifyContent="center">
           <Box
             display={
               slide === Math.ceil(CarouselImages.length / 3) - 1
@@ -127,7 +131,8 @@ const Carousel = () => {
                 style={{ cursor: 'pointer' }}
                 color={index === slide ? '#FFFFFF' : '#444444'}
                 onClick={() => {
-                  carousel.current.scrollLeft = index * 930;
+                  carousel.current.scrollLeft =
+                    index * (window.innerWidth * 0.81);
                   setSlide(index);
                 }}
               >
