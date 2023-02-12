@@ -214,3 +214,20 @@ a {
 @-moz-keyframes rotation {
   100% {-moz-transform:rotate(360deg);}
 }
+
+.footer-social {
+  border-bottom: 0.08em solid #fff;
+  background-image: linear-gradient(#fff 0 0);
+  background-size: 200% .07em; /* .08em is our fixed height, use what you want  */
+  background-position: 200% 105%;
+  background-repeat: no-repeat;
+  transition: background-position;
+  position:relative;
+}
+
+.footer-social:hover {
+  border-bottom: 0;
+  transition: background-position .5s .2s;
+  background-position: 100% 105%;
+}
+

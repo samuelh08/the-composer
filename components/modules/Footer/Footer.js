@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import FooterMenu from './constants/FooterMenu';
+import FooterSocial from './constants/FooterSocial';
 import { useTheme } from '@mui/material/styles';
 
 const Footer = () => {
@@ -18,6 +19,7 @@ const Footer = () => {
   const { pathname } = useRouter();
   const clipboardRef = useRef(null);
   const [activeClipBoard, setActiveClipBoard] = useState(false); 
+  const [mousePos, setMousePos] = useState({});
 
   const logo = require('assets/img/SymbolLogo-01.svg');
 
@@ -26,13 +28,15 @@ const Footer = () => {
     setActiveClipBoard(true);
   }
 
+  const handleMouseDown = (e) => {
+    setMousePos({x: e.clientX })
+  }
+
   useEffect(() => {
     activeClipBoard && setTimeout(() => {
-      console.log('despues de un segundo')
       setActiveClipBoard(false);
     }, 2000)
 
-    console.log(clipboardRef.current.offsetTop)
   }, [activeClipBoard])
 
   return (
@@ -55,7 +59,9 @@ const Footer = () => {
         })}
         <Grid item container xs={12} sx={{ paddingTop: 6 }} justifyContent="flex-start" alignItems="flex-end">
           <Grid item xs={12} md={6} sx={{ paddingLeft: '7%'}}>
-            <Image src={logo} alt="Eduardo's Logo" height='150%'/>
+            <a href='#'>
+              <Image src={logo} alt="Eduardo's Logo" width='160vw'/>
+            </a>
           </Grid>
           <Grid item container xs={12} md={6}>
             <Grid item xs={7}>
@@ -67,6 +73,7 @@ const Footer = () => {
                 id='contact-footer'
                 ref={clipboardRef}
                 onClick={() => handleClipBoard()}
+                onMouseDown={(e) => handleMouseDown(e)}
               >
                 <span>
                   Eddbeatmusic
@@ -79,50 +86,20 @@ const Footer = () => {
             </Grid>
             <Grid item xs={5}>
               <Stack spacing={2}>
-                <Link
-                  variant='subtitle4'
-                  underline='none'
-                  href='#'
-                >
-                  <Box 
-                    component='span'
-                    sx={{ paddingBottom: 0.7, borderBottom: '1px solid white', paddingRight:'7px' }}>
-                      Sound Cloud
+                {FooterSocial.map((item, i) => (
+                  <Link
+                    variant='subtitle4'
+                    underline='none'
+                    href={item.href}
+                  >
+                    <Box
+                      component='span'
+                      className='footer-social'
+                      sx={{ marginBottom: '0.07em', paddingRight: '7px' }}>
+                      {item.title}
                   </Box>
-                </Link>
-                <Link
-                  variant='subtitle4'
-                  underline='none'
-                  href='#'
-                >
-                  <Box 
-                    component='span'
-                    sx={{ paddingBottom: 0.7, borderBottom: '1px solid white', paddingRight:'7px' }}>
-                      Band Camp
-                  </Box>
-                </Link>
-                <Link
-                  variant='subtitle4'
-                  underline='none'
-                  href='#'
-                >
-                  <Box 
-                    component='span'
-                    sx={{ paddingBottom: 0.7, borderBottom: '1px solid white', paddingRight:'7px' }}>
-                      Instagram
-                  </Box>
-                </Link>
-                <Link
-                  variant='subtitle4'
-                  underline='none'
-                  href='#'
-                >
-                  <Box 
-                    component='span'
-                    sx={{ paddingBottom: 0.7, borderBottom: '1px solid white', paddingRight:'7px' }}>
-                      Twitter
-                  </Box>
-                </Link>
+                  </Link>
+                ))}
               </Stack>
             </Grid>
             <Grid item xs={12} sx={{paddingTop: 6}}>
@@ -133,9 +110,8 @@ const Footer = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Box
+      {activeClipBoard && <Box
         sx={{ 
-          visibility: activeClipBoard ? 'visible' : 'hidden',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -145,18 +121,17 @@ const Footer = () => {
           border: '1px solid white',
           textAlign:'center',
           position: 'absolute',
-          top: clipboardRef.current && clipboardRef.current.offsetTop + 'px',
-          right: clipboardRef.current && clipboardRef.current.offsetWidth + 'px',
+          top: clipboardRef.current && clipboardRef.current.offsetTop + 50 +'px',
+          left: mousePos.x + 'px',
           zIndex: '50',
           backgroundColor: theme.palette.secondary.main
         }}
         className={activeClipBoard ? 'clip-board' : ''}
       >
-        <Typography variant="subtitle5" color='primary' sx={{ textTransform: 'uppercase'
-      }}>
+        <Typography variant="subtitle5" color='primary' sx={{ textTransform: 'uppercase' }}>
           Copied to ClipBoard
         </Typography>
-      </Box>
+      </Box>}
     </Box>
   )
 };
