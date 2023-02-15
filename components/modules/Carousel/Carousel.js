@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Box, Grid, Typography } from '@mui/material';
 
@@ -7,17 +7,27 @@ import ArrowWhite from 'assets/img/PortfolioArrowNext-02-01.svg';
 
 import CarouselImages from './constants/CarouselImages';
 
+import play from 'assets/img/Play.svg';
+
 const Carousel = () => {
   const [activeElement, setActiveElement] = useState(null);
   const [clicked, setClicked] = useState(null);
+  const [selected, setSelected] = useState('');
   const [slide, setSlide] = useState(0);
 
   const carousel = useRef(null);
   const content = useRef(null);
 
-  addEventListener('resize', (event) => {
-    carousel.current.scrollLeft = slide * (window.innerWidth * 0.81);
-  });
+  useEffect(() => {
+    const element = carousel.current;
+    const handleResize = (event) => {
+      element.scrollLeft = slide * (window.innerWidth * 0.81);
+    };
+    addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [carousel, slide]);
 
   const handleClickNext = () => {
     setClicked('right');
@@ -46,7 +56,7 @@ const Carousel = () => {
             <Image
               alt="previous"
               src={activeElement === 'left' ? ArrowWhite : ArrowGray}
-              width={clicked === 'left' ? '80%' : '100%'}
+              width={clicked === 'left' ? '80vw' : '100vw'}
               hidden={slide === 0 ? 'none' : 'block'}
               style={{
                 cursor: 'pointer',
@@ -85,9 +95,44 @@ const Carousel = () => {
                   <Box
                     key={index}
                     marginX="0.5vw"
-                    style={{ width: '26vw', height: '26vw' }}
+                    style={{ width: '26vw', height: '26vw', cursor: 'pointer' }}
+                    position="relative"
                   >
-                    <Image key={index} alt={item.title} src={item.image} />
+                    <Image
+                      key={index}
+                      alt={item.title}
+                      src={item.image}
+                      style={{
+                        filter:
+                          activeElement === item.title
+                            ? 'grayscale(100)'
+                            : 'none',
+                      }}
+                      onMouseEnter={() => setActiveElement(item.title)}
+                      onMouseLeave={() => setActiveElement(null)}
+                    />
+                    <Box
+                      position="absolute"
+                      textAlign="center"
+                      right="50%"
+                      top="50%"
+                      display={activeElement === item.title ? 'block' : 'none'}
+                    >
+                      <div
+                        style={{
+                          height: '5vw',
+                          width: '5vw',
+                          borderRadius: '50%',
+                          backgroundColor: 'white',
+                          display: 'flex',
+                          flexWrap: 'wrap',
+                          alignContent: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <Image src={play} alt={'play'} />
+                      </div>
+                    </Box>
                   </Box>
                 ))}
               </Box>
@@ -105,7 +150,7 @@ const Carousel = () => {
             <Image
               alt="next"
               src={activeElement === 'right' ? ArrowWhite : ArrowGray}
-              width={clicked === 'right' ? '80%' : '100%'}
+              width={clicked === 'right' ? '80vw' : '100vw'}
               style={{
                 transform: 'scaleX(-1)',
                 cursor: 'pointer',
@@ -120,6 +165,7 @@ const Carousel = () => {
       <Box
         justifyContent="center"
         display="flex"
+        alignItems="center"
         style={{ backgroundColor: '#000000' }}
       >
         {Array.from({ length: Math.ceil(CarouselImages.length / 3) }).map(
@@ -128,8 +174,21 @@ const Carousel = () => {
               <Typography
                 key={index}
                 marginX={2}
+                width="3vw"
+                textAlign="center"
                 style={{ cursor: 'pointer' }}
                 color={index === slide ? '#FFFFFF' : '#444444'}
+                fontSize={
+                  index === slide
+                    ? '3vw'
+                    : activeElement === index
+                    ? '3vw'
+                    : '2vw'
+                }
+                onMouseEnter={() => {
+                  setActiveElement(index);
+                }}
+                onMouseLeave={() => setActiveElement(null)}
                 onClick={() => {
                   carousel.current.scrollLeft =
                     index * (window.innerWidth * 0.81);

@@ -10,39 +10,39 @@ import test9 from 'assets/test/test9.jpg';
 
 const Content = [
   {
-    title: 'test',
+    title: 'test1',
     image: test1,
   },
   {
-    title: 'test',
+    title: 'test2',
     image: test2,
   },
   {
-    title: 'test',
+    title: 'test3',
     image: test3,
   },
   {
-    title: 'test',
+    title: 'test4',
     image: test4,
   },
   {
-    title: 'test',
+    title: 'test5',
     image: test5,
   },
   {
-    title: 'test',
+    title: 'test6',
     image: test6,
   },
   {
-    title: 'test',
+    title: 'test7',
     image: test7,
   },
   {
-    title: 'test',
+    title: 'test8',
     image: test8,
   },
   {
-    title: 'test',
+    title: 'test9',
     image: test9,
   },
 ];
