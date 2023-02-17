@@ -11,38 +11,47 @@ import test9 from 'assets/test/test9.jpg';
 const Content = [
   {
     title: 'test1',
+    category: 'videogames, sound design',
     image: test1,
   },
   {
     title: 'test2',
+    category: 'videogames, sound design',
     image: test2,
   },
   {
     title: 'test3',
+    category: 'videogames, sound design',
     image: test3,
   },
   {
     title: 'test4',
+    category: 'videogames, sound design',
     image: test4,
   },
   {
     title: 'test5',
+    category: 'videogames, sound design',
     image: test5,
   },
   {
     title: 'test6',
+    category: 'videogames, sound design',
     image: test6,
   },
   {
     title: 'test7',
+    category: 'videogames, sound design',
     image: test7,
   },
   {
     title: 'test8',
+    category: 'videogames, sound design',
     image: test8,
   },
   {
     title: 'test9',
+    category: 'videogames, sound design',
     image: test9,
   },
 ];

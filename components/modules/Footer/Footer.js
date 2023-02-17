@@ -129,7 +129,12 @@ const Footer = () => {
             <Grid item xs={5}>
               <Stack spacing={2}>
                 {FooterSocial.map((item, i) => (
-                  <Link variant="subtitle4" underline="none" href={item.href}>
+                  <Link
+                    key={i}
+                    variant="subtitle4"
+                    underline="none"
+                    href={item.href}
+                  >
                     <Box
                       component="span"
                       className="footer-social"

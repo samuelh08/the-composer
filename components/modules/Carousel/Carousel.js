@@ -8,6 +8,7 @@ import ArrowWhite from 'assets/img/PortfolioArrowNext-02-01.svg';
 import CarouselImages from './constants/CarouselImages';
 
 import play from 'assets/img/Play.svg';
+import pause from 'assets/img/Pause.svg';
 
 const Carousel = () => {
   const [activeElement, setActiveElement] = useState(null);
@@ -97,6 +98,8 @@ const Carousel = () => {
                     marginX="0.5vw"
                     style={{ width: '26vw', height: '26vw', cursor: 'pointer' }}
                     position="relative"
+                    onMouseEnter={() => setActiveElement(item.title)}
+                    onMouseLeave={() => setActiveElement(null)}
                   >
                     <Image
                       key={index}
@@ -104,34 +107,70 @@ const Carousel = () => {
                       src={item.image}
                       style={{
                         filter:
-                          activeElement === item.title
+                          activeElement === item.title ||
+                          selected === item.title
                             ? 'grayscale(100)'
                             : 'none',
                       }}
-                      onMouseEnter={() => setActiveElement(item.title)}
-                      onMouseLeave={() => setActiveElement(null)}
                     />
                     <Box
+                      width="100%"
+                      height="100%"
                       position="absolute"
+                      top="0%"
                       textAlign="center"
-                      right="50%"
-                      top="50%"
-                      display={activeElement === item.title ? 'block' : 'none'}
+                      flexDirection="column"
+                      flexWrap="wrap"
+                      alignContent="center"
+                      alignItems="center"
+                      justifyContent="center"
+                      display={
+                        activeElement === item.title || selected === item.title
+                          ? 'flex'
+                          : 'none'
+                      }
                     >
-                      <div
-                        style={{
-                          height: '5vw',
-                          width: '5vw',
-                          borderRadius: '50%',
-                          backgroundColor: 'white',
-                          display: 'flex',
-                          flexWrap: 'wrap',
-                          alignContent: 'center',
-                          justifyContent: 'center',
-                        }}
+                      <Grid
+                        container
+                        height="20%"
+                        width="20%"
+                        borderRadius="50%"
+                        bgcolor="white"
+                        alignContent="center"
+                        justifyContent="center"
+                        onClick={() =>
+                          setSelected(
+                            selected === item.title ? null : item.title,
+                          )
+                        }
                       >
-                        <Image src={play} alt={'play'} />
-                      </div>
+                        <Grid item xs={3}></Grid>
+                        <Grid
+                          item
+                          xs={selected === item.title ? 6 : 7}
+                          display="flex"
+                          justifyContent="center"
+                        >
+                          <Image
+                            src={selected === item.title ? pause : play}
+                            alt={selected === item.title ? 'pause' : 'play'}
+                            height="40%"
+                            width="40%"
+                          />
+                        </Grid>
+                        <Grid item xs={selected === item.title ? 3 : 2}></Grid>
+                      </Grid>
+                      <Typography variant="h6" color="white" marginTop="2vh">
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        variant="subtitle5"
+                        color="white"
+                        sx={{ textTransform: 'uppercase' }}
+                        marginTop="2vh"
+                      >
+                        {item.category}
+                      </Typography>
                     </Box>
                   </Box>
                 ))}
