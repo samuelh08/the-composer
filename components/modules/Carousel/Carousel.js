@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Box, Grid, Typography } from '@mui/material';
 
@@ -15,6 +15,9 @@ const Carousel = () => {
   const [clicked, setClicked] = useState(null);
   const [selected, setSelected] = useState('');
   const [slide, setSlide] = useState(0);
+  const [audio, setAudio] = useState(null);
+  const [playing, setPlaying] = useState(false);
+  const [current, setCurrent] = useState(0);
 
   const carousel = useRef(null);
   const content = useRef(null);
@@ -30,6 +33,24 @@ const Carousel = () => {
     };
   }, [carousel, slide]);
 
+  useEffect(() => {
+    playing ? audio?.play() : audio?.pause();
+  }, [playing, audio]);
+
+  useEffect(() => {
+    audio?.addEventListener('ended', () => setPlaying(false));
+    return () => {
+      audio?.removeEventListener('ended', () => setPlaying(false));
+    };
+  }, [audio]);
+
+  useEffect(() => {
+    audio?.addEventListener('timeupdate', () => setCurrent(audio?.currentTime));
+    return () => {
+      audio?.removeEventListener('timeupdate', () => setCurrent(0));
+    };
+  }, [audio]);
+
   const handleClickNext = () => {
     setClicked('right');
     setSlide(slide + 1);
@@ -42,6 +63,21 @@ const Carousel = () => {
     setSlide(slide - 1);
     carousel.current.scrollLeft = (slide - 1) * (window.innerWidth * 0.81);
     setTimeout(() => setClicked(null), 500);
+  };
+
+  const togglePlay = async (item) => {
+    if (selected === item.title) {
+      setPlaying(!playing);
+    } else if (playing) {
+      await setPlaying(false);
+      setSelected(item.title);
+      setAudio(new Audio(item.audio));
+      setPlaying(true);
+    } else {
+      setSelected(item.title);
+      setAudio(new Audio(item.audio));
+      setPlaying(true);
+    }
   };
 
   return (
@@ -130,36 +166,68 @@ const Carousel = () => {
                           : 'none'
                       }
                     >
-                      <Grid
-                        container
+                      <Box
                         height="20%"
                         width="20%"
+                        padding="10px"
                         borderRadius="50%"
-                        bgcolor="white"
-                        alignContent="center"
-                        justifyContent="center"
-                        onClick={() =>
-                          setSelected(
-                            selected === item.title ? null : item.title,
-                          )
-                        }
+                        display="inline-block"
+                        border="solid white 0.2vw"
+                        style={{
+                          backgroundColor: 'white',
+                          backgroundImage:
+                            selected === item.title
+                              ? `conic-gradient(#444444 ${
+                                  (current * 100) / audio?.duration
+                                }%, white ${
+                                  (current * 100) / audio?.duration
+                                }% ${
+                                  ((audio?.duration - current) * 100) /
+                                  audio?.duration
+                                }%)`
+                              : 'none',
+                        }}
                       >
-                        <Grid item xs={3}></Grid>
                         <Grid
-                          item
-                          xs={selected === item.title ? 6 : 7}
-                          display="flex"
+                          container
+                          height="100%"
+                          width="100%"
+                          borderRadius="50%"
+                          bgcolor="white"
+                          alignContent="center"
                           justifyContent="center"
+                          onClick={() => {
+                            togglePlay(item);
+                          }}
                         >
-                          <Image
-                            src={selected === item.title ? pause : play}
-                            alt={selected === item.title ? 'pause' : 'play'}
-                            height="40%"
-                            width="40%"
-                          />
+                          <Grid item xs={3}></Grid>
+                          <Grid
+                            item
+                            xs={selected === item.title ? 6 : 7}
+                            display="flex"
+                            justifyContent="center"
+                          >
+                            <Image
+                              src={
+                                (selected === item.title) & playing
+                                  ? pause
+                                  : play
+                              }
+                              alt={
+                                (selected === item.title) & playing
+                                  ? 'pause'
+                                  : 'play'
+                              }
+                              height="40%"
+                              width="40%"
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={(selected === item.title) & playing ? 3 : 2}
+                          ></Grid>
                         </Grid>
-                        <Grid item xs={selected === item.title ? 3 : 2}></Grid>
-                      </Grid>
+                      </Box>
                       <Typography variant="h6" color="white" marginTop="2vh">
                         {item.title}
                       </Typography>
