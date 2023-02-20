@@ -2,23 +2,23 @@ const Content = [
   {
     title: 'work',
     path: '/work',
-    sub: 'listen'
+    sub: 'listen',
   },
   {
     title: 'services',
     path: '/services',
-    sub: 'skillS'
+    sub: 'skillS',
   },
   {
     title: 'about',
     path: '/about',
-    sub: 'know me'
+    sub: 'know me',
   },
   {
     title: 'contact',
     path: '/contact',
-    sub: 'say hello'
+    sub: 'say hello',
   },
-]
+];
 
 export default Content;

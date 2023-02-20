@@ -18,7 +18,7 @@ const Footer = () => {
   const theme = useTheme();
   const { pathname } = useRouter();
   const clipboardRef = useRef(null);
-  const [activeClipBoard, setActiveClipBoard] = useState(false); 
+  const [activeClipBoard, setActiveClipBoard] = useState(false);
   const [mousePos, setMousePos] = useState({});
 
   const logo = require('assets/img/SymbolLogo-01.svg');
@@ -26,114 +26,169 @@ const Footer = () => {
   const handleClipBoard = () => {
     navigator.clipboard.writeText('eddbeatmusic.contact@gmail.com');
     setActiveClipBoard(true);
-  }
+  };
 
   const handleMouseDown = (e) => {
-    setMousePos({x: e.clientX })
-  }
+    setMousePos({ x: e.clientX });
+  };
 
   useEffect(() => {
-    activeClipBoard && setTimeout(() => {
-      setActiveClipBoard(false);
-    }, 2000)
-
-  }, [activeClipBoard])
+    activeClipBoard &&
+      setTimeout(() => {
+        setActiveClipBoard(false);
+      }, 2000);
+  }, [activeClipBoard]);
 
   return (
     <Box bgcolor="#000">
-      <Grid container sx={{paddingBottom: 6}}>
+      <Grid container sx={{ paddingBottom: 6 }}>
         {FooterMenu.map((item, i) => {
-          return <Grid item xs={12} sx={{ borderBottom: '1px solid white', paddingLeft: '8%', cursor: pathname === item.path ? '' : 'pointer'}} className={pathname === item.path ? 'active-footer' : 'footer-title'} key={i}>
-            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-              <Typography variant="h6" color='primary' sx={{ pr: 5,textTransform: 'uppercase' }}>
-                {item.title}
-              </Typography>
-              <Box 
-                sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '173.783px', height: '116.7278px', borderRadius: '50%', border: '1px solid black'}}>
-                <Typography variant="subtitle5" color='secondary' sx={{ textTransform: 'uppercase' }}>
-                  {item.sub}
+          return (
+            <Grid
+              item
+              xs={12}
+              sx={{
+                borderBottom: '1px solid white',
+                paddingLeft: '8%',
+                cursor: pathname === item.path ? '' : 'pointer',
+              }}
+              className={
+                pathname === item.path ? 'active-footer' : 'footer-title'
+              }
+              key={i}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  sx={{ pr: 5, textTransform: 'uppercase' }}
+                >
+                  {item.title}
                 </Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '173.783px',
+                    height: '116.7278px',
+                    borderRadius: '50%',
+                    border: '1px solid black',
+                  }}
+                >
+                  <Typography
+                    variant="subtitle5"
+                    color="secondary"
+                    sx={{ textTransform: 'uppercase' }}
+                  >
+                    {item.sub}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
-          </Grid> 
+            </Grid>
+          );
         })}
-        <Grid item container xs={12} sx={{ paddingTop: 6 }} justifyContent="flex-start" alignItems="flex-end">
-          <Grid item xs={12} md={6} sx={{ paddingLeft: '7%'}}>
-            <a href='#'>
-              <Image src={logo} alt="Eduardo's Logo" width='160vw'/>
+        <Grid
+          item
+          container
+          xs={12}
+          sx={{ paddingTop: 6 }}
+          justifyContent="flex-start"
+          alignItems="flex-end"
+        >
+          <Grid item xs={12} md={6} sx={{ paddingLeft: '7%' }}>
+            <a href="#">
+              <Image src={logo} alt="Eduardo's Logo" width="160vw" />
             </a>
           </Grid>
           <Grid item container xs={12} md={6}>
             <Grid item xs={7}>
-              <Typography variant='subtitle4' color='primary'>Drop me a line</Typography>
+              <Typography variant="subtitle4" color="primary">
+                Drop me a line
+              </Typography>
               <Typography
-                color='primary'
-                sx={{ overflowWrap: 'break-word', paddingTop: 2}}
-                variant='h6'
-                id='contact-footer'
+                color="primary"
+                sx={{ overflowWrap: 'break-word', paddingTop: 2 }}
+                variant="h6"
+                id="contact-footer"
                 ref={clipboardRef}
                 onClick={() => handleClipBoard()}
                 onMouseDown={(e) => handleMouseDown(e)}
               >
-                <span>
-                  Eddbeatmusic
-                </span>
-                <br/>
-                <span>
-                  .contact@gmail.com
-                </span>
+                <span>Eddbeatmusic</span>
+                <br />
+                <span>.contact@gmail.com</span>
               </Typography>
             </Grid>
             <Grid item xs={5}>
               <Stack spacing={2}>
                 {FooterSocial.map((item, i) => (
                   <Link
-                    variant='subtitle4'
-                    underline='none'
+                    key={i}
+                    variant="subtitle4"
+                    underline="none"
                     href={item.href}
                   >
                     <Box
-                      component='span'
-                      className='footer-social'
-                      sx={{ marginBottom: '0.07em', paddingRight: '7px' }}>
+                      component="span"
+                      className="footer-social"
+                      sx={{ marginBottom: '0.07em', paddingRight: '7px' }}
+                    >
                       {item.title}
-                  </Box>
+                    </Box>
                   </Link>
                 ))}
               </Stack>
             </Grid>
-            <Grid item xs={12} sx={{paddingTop: 6}}>
-              <Typography variant='subtitle4' sx={{color: 'rgba(255, 255, 255, 0.16)'}}>
+            <Grid item xs={12} sx={{ paddingTop: 6 }}>
+              <Typography
+                variant="subtitle4"
+                sx={{ color: 'rgba(255, 255, 255, 0.16)' }}
+              >
                 &copy; 2022 Eduardo Hincapie - All rights reserved
               </Typography>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      {activeClipBoard && <Box
-        sx={{ 
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '173.783px',
-          height: '116.7278px',
-          borderRadius: '50%',
-          border: '1px solid white',
-          textAlign:'center',
-          position: 'absolute',
-          top: clipboardRef.current && clipboardRef.current.offsetTop + 50 +'px',
-          left: mousePos.x + 'px',
-          zIndex: '50',
-          backgroundColor: theme.palette.secondary.main
-        }}
-        className={activeClipBoard ? 'clip-board' : ''}
-      >
-        <Typography variant="subtitle5" color='primary' sx={{ textTransform: 'uppercase' }}>
-          Copied to ClipBoard
-        </Typography>
-      </Box>}
+      {activeClipBoard && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '173.783px',
+            height: '116.7278px',
+            borderRadius: '50%',
+            border: '1px solid white',
+            textAlign: 'center',
+            position: 'absolute',
+            top:
+              clipboardRef.current &&
+              clipboardRef.current.offsetTop + 50 + 'px',
+            left: mousePos.x + 'px',
+            zIndex: '50',
+            backgroundColor: theme.palette.secondary.main,
+          }}
+          className={activeClipBoard ? 'clip-board' : ''}
+        >
+          <Typography
+            variant="subtitle5"
+            color="primary"
+            sx={{ textTransform: 'uppercase' }}
+          >
+            Copied to ClipBoard
+          </Typography>
+        </Box>
+      )}
     </Box>
-  )
+  );
 };
 
-export default Footer
+export default Footer;

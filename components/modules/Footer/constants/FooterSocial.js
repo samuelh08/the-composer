@@ -4,7 +4,7 @@ const Content = [
     href: '#',
   },
   {
-    title: 'Sotify',
+    title: 'Spotify',
     href: '#',
   },
   {
@@ -15,6 +15,6 @@ const Content = [
     title: 'Twitter',
     href: '#',
   },
-]
+];
 
 export default Content;

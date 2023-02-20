@@ -2,6 +2,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import TopBar from 'components/modules/TopBar';
 import Footer from 'components/modules/Footer';
+import Playlist from 'components/modules/Playlist';
 
 import '../styles/globals.css';
 
@@ -24,13 +25,13 @@ const theme = createTheme({
       fontFamily: 'Hebden Grotesque',
       fontSize: '3.188rem',
       lineHeight: '66pt',
-      letterSpacing: '0.1em'
+      letterSpacing: '0.1em',
     },
     h2: {
       fontFamily: 'Hebden Grotesque',
       fontSize: '2.625rem',
       lineHeight: '54pt',
-      letterSpacing: '0.1em'
+      letterSpacing: '0.1em',
     },
     h3: {
       fontFamily: 'Hebden Grotesque',
@@ -41,7 +42,7 @@ const theme = createTheme({
       fontFamily: 'Hebden Grotesque',
       fontSize: '1.75rem',
       lineHeight: '36pt',
-      letterSpacing: '0.2em'
+      letterSpacing: '0.2em',
     },
     h5: {
       fontFamily: 'Hebden Grotesque',
@@ -52,7 +53,7 @@ const theme = createTheme({
       fontFamily: 'Hebden Grotesque',
       fontSize: '1.375rem',
       lineHeight: '19pt',
-      letterSpacing: '0.2em'
+      letterSpacing: '0.2em',
     },
     subtitle1: {
       fontFamily: 'Andale Mono',
@@ -68,19 +69,19 @@ const theme = createTheme({
       fontFamily: 'Andale Mono',
       fontSize: '1.438rem',
       lineHeight: '28pt',
-      letterSpacing: '0.11em'
+      letterSpacing: '0.11em',
     },
     subtitle4: {
       fontFamily: 'Andale Mono',
       fontSize: '1.375rem',
       lineHeight: '26pt',
-      letterSpacing: '0.11em'
+      letterSpacing: '0.11em',
     },
     subtitle5: {
       fontFamily: 'Andale Mono',
       fontSize: '1.25rem',
       lineHeight: '24pt',
-      letterSpacing: '0.11em'
+      letterSpacing: '0.11em',
     },
   },
 });
