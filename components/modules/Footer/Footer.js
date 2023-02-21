@@ -5,13 +5,13 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import FooterMenu from './constants/FooterMenu';
 import FooterSocial from './constants/FooterSocial';
-import { useTheme } from '@mui/material/styles';
 
 const Footer = () => {
   //TODO: navegate when pages are ready

@@ -215,6 +215,10 @@ a {
   100% {-moz-transform:rotate(360deg);}
 }
 
+.slick-slide {
+  padding: 0 15px;
+}
+
 .footer-social {
   border-bottom: 0.08em solid #fff;
   background-image: linear-gradient(#fff 0 0);
@@ -230,4 +234,3 @@ a {
   transition: background-position .5s .2s;
   background-position: 100% 104%;
 }
-
