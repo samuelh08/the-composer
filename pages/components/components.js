@@ -6,6 +6,10 @@ import TopBar from 'components/modules/TopBar';
 import Footer from 'components/modules/Footer';
 import LP from 'components/elements/LP';
 import Playlist from 'components/modules/Playlist';
+import DragGallery from 'components/elements/DragGallery';
+
+import DragList from './DragGalleryObject';
+
 
 const Components = () => {
   return (
@@ -15,11 +19,12 @@ const Components = () => {
       <Playlist />
       <Box bgcolor="#000">
         <Grid container justifyContent="center">
-          <Grid xs={6} sx={{ height: '100%' }}>
+          <Grid item xs={6} sx={{ height: '100%' }}>
             <LP />
           </Grid>
         </Grid>
       </Box>
+      <DragGallery images={DragList}/>
       <Footer />
     </>
   );
