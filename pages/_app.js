@@ -1,4 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import TopBar from 'components/modules/TopBar';
 import Footer from 'components/modules/Footer';
