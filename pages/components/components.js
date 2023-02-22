@@ -7,9 +7,10 @@ import Footer from 'components/modules/Footer';
 import LP from 'components/elements/LP';
 import Playlist from 'components/modules/Playlist';
 import DragGallery from 'components/elements/DragGallery';
+import ImageDisplay from 'components/foundation/ImageDisplay';
 
 import DragList from './DragGalleryObject';
-
+import ImageDisplayTest from './ImageDisplayTest';
 
 const Components = () => {
   return (
@@ -25,6 +26,11 @@ const Components = () => {
         </Grid>
       </Box>
       <DragGallery images={DragList}/>
+      <Grid container justifyContent="center">
+        <Grid item xs={10}>
+          <ImageDisplay images={ImageDisplayTest} />
+        </Grid>
+      </Grid>
       <Footer />
     </>
   );
