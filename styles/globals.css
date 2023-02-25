@@ -1,14 +1,14 @@
 @font-face {
   font-family: Hebden Grotesque;
-  src: url("../assets/typography/Hebden_Grotesque.ttf") format('ttf')
+  src: url('../assets/typography/Hebden_Grotesque.ttf') format('ttf');
 }
 @font-face {
   font-family: Andale Mono;
-  src: url("../assets/typography/Andale_Mono.ttf") format('ttf')
+  src: url('../assets/typography/Andale_Mono.ttf') format('ttf');
 }
 @font-face {
   font-family: Andale Mono Italic;
-  src: url("../assets/typography/Andale_Mono_Italic.ttf") format('ttf')
+  src: url('../assets/typography/Andale_Mono_Italic.ttf') format('ttf');
 }
 
 html,
@@ -39,7 +39,7 @@ a {
 
 .footer-title {
   background: linear-gradient(#fff 0 0) left / var(--p, 0) no-repeat;
-  transition: .8s, background-position 0s;
+  transition: 0.8s, background-position 0s;
 }
 
 .active-footer {
@@ -52,10 +52,11 @@ a {
 }
 
 .footer-title .css-10pt980-MuiTypography-root {
-  transition: .8s, color .6s;
+  transition: 0.8s, color 0.6s;
 }
 
-.footer-title:hover, .footer-title:hover .css-10pt980-MuiTypography-root{
+.footer-title:hover,
+.footer-title:hover .css-10pt980-MuiTypography-root {
   --p: 100%;
   color: #000;
 }
@@ -68,22 +69,30 @@ a {
 .clip-board {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
-  animation: clip-fadeIn 1s
+  animation: clip-fadeIn 1s;
 }
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes clip-fadeIn {
-  from {opacity: 0;}
-  to {opacity: 0.7;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.7;
+  }
 }
 
 @keyframes clip-fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .lp-disc {
-  position:absolute;
+  position: absolute;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -97,71 +106,71 @@ a {
   animation-play-state: paused;
 }
 
-.lp-component:hover .lp-disc{
+.lp-component:hover .lp-disc {
   cursor: pointer;
   animation-play-state: running;
 }
 
-.lp-component:hover .left-text{
+.lp-component:hover .left-text {
   animation: movingDown 1s;
   -webkit-animation: movingDown 1s;
   padding-top: 36.6%;
 }
 
-.lp-component:hover .right-text{
+.lp-component:hover .right-text {
   animation: movingUp 1s;
   -webkit-animation: movingUp 1s;
   padding-top: 36.6%;
 }
 
-.left-text{
-  transition: padding-top 1s .6s;
+.left-text {
+  transition: padding-top 1s 0.6s;
 }
 
-.right-text{
-  transition: padding-top 1s .6s;
+.right-text {
+  transition: padding-top 1s 0.6s;
 }
 
 .text-left-underscore {
   background-image: linear-gradient(#fff 0 0);
-  background-size: 200% .08em; /* .08em is our fixed height, use what you want  */
+  background-size: 200% 0.08em; /* .08em is our fixed height, use what you want  */
   background-position: 200% 100%;
   background-repeat: no-repeat;
-  transition: background-position .2s .3s;
+  transition: background-position 0.2s 0.3s;
 }
 
-.lp-component:hover .text-left-underscore{
-  transition: background-position .2s 0.9s;
+.lp-component:hover .text-left-underscore {
+  transition: background-position 0.2s 0.9s;
   background-position: 100% 100%;
 }
 
 .text-center-underscore {
   background-image: linear-gradient(#fff 0 0);
-  background-size: 200% .08em; /* .08em is our fixed height, use what you want  */
+  background-size: 200% 0.08em; /* .08em is our fixed height, use what you want  */
   background-position: 200% 100%;
   background-repeat: no-repeat;
-  transition: background-position .3s .1s;
-  position:relative;
+  transition: background-position 0.3s 0.1s;
+  position: relative;
   z-index: 50;
 }
 
-.lp-component:hover .text-center-underscore{
-  transition: background-position .3s 1s;
+.lp-component:hover .text-center-underscore {
+  transition: background-position 0.3s 1s;
   background-position: 100% 100%;
 }
 
 .text-right-underscore {
   background-image: linear-gradient(#fff 0 0);
-  background-size: 200% .08em; /* .08em is our fixed height, use what you want  */
+  background-size: 200% 0.08em; /* .08em is our fixed height, use what you want  */
   background-position: 200% 100%;
   background-repeat: no-repeat;
-  transition: background-position .2s;
-  position:relative;
+  transition: background-position 0.2s;
+  position: relative;
   z-index: 50;
 }
 
-.lp-component:hover .text-right-underscore{
-  transition: background-position .2s 1.2s;
+.lp-component:hover .text-right-underscore {
+  transition: background-position 0.2s 1.2s;
   background-position: 100% 100%;
 }
 
@@ -203,16 +212,20 @@ a {
 
 @keyframes rotation {
   100% {
-    transform:rotate(360deg)
+    transform: rotate(360deg);
   }
 }
 
 @-webkit-keyframes rotation {
-  100% {-webkit-transform:rotate(360deg);}
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @-moz-keyframes rotation {
-  100% {-moz-transform:rotate(360deg);}
+  100% {
+    -moz-transform: rotate(360deg);
+  }
 }
 
 .slick-slide {
@@ -222,15 +235,15 @@ a {
 .footer-social {
   border-bottom: 0.08em solid #fff;
   background-image: linear-gradient(#fff 0 0);
-  background-size: 200% .07em; /* .08em is our fixed height, use what you want  */
+  background-size: 200% 0.07em; /* .08em is our fixed height, use what you want  */
   background-position: 200% 104%;
   background-repeat: no-repeat;
   transition: background-position;
-  position:relative;
+  position: relative;
 }
 
 .footer-social:hover {
   border-bottom: 0;
-  transition: background-position .5s .2s;
+  transition: background-position 0.5s 0.2s;
   background-position: 100% 104%;
 }
