@@ -139,6 +139,9 @@ const Playlist = () => {
                     sx={{
                       color: 'black',
                       width: '95%',
+                      '& .MuiSlider-thumb': {
+                        display: selected !== item.title ? 'none' : 'block',
+                      },
                     }}
                   />
                 </Grid>
