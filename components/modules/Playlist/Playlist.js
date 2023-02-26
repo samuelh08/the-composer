@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Box, Divider, Grid, Slider, Typography } from '@mui/material';
 
 import playlist from './constants/Panacea';
@@ -15,19 +16,21 @@ const Playlist = () => {
   const [duration, setDuration] = useState(0);
   const [current, setCurrent] = useState(0);
   const [tracks, setTracks] = useState([]);
+  const [time, setTime] = useState(0);
 
   function fetchDuration(path) {
     const track = new Audio();
     track.src = path;
-    return track.duration;
+    track.addEventListener('loadedmetadata', () => setTime(track.duration));
   }
 
   useEffect(() => {
     const durations = playlist.tracks.map((item) => {
-      return fetchDuration(item.audio);
+      fetchDuration(item.audio);
+      return time;
     });
     setTracks(durations);
-  }, []);
+  }, [time]);
 
   useEffect(() => {
     playing ? audio?.play() : audio?.pause();
@@ -66,6 +69,8 @@ const Playlist = () => {
     }
   };
 
+  console.log(tracks);
+
   return (
     <>
       <Grid container>
@@ -78,8 +83,20 @@ const Playlist = () => {
           <Box display="flex" justifyContent="space-around" alignItems="center">
             <Typography variant="h3">Playlist Preview</Typography>
             <Box>
-              <Image src={SoundcloudIconGray} alt="soundcloud" />
-              <Image src={BandcampIconGray} alt="bandcamp" />
+              <Link href={playlist.soundcloud}>
+                <Image
+                  src={SoundcloudIconGray}
+                  alt="soundcloud"
+                  style={{ cursor: 'pointer' }}
+                />
+              </Link>
+              <Link href={playlist.bandcamp}>
+                <Image
+                  src={BandcampIconGray}
+                  alt="bandcamp"
+                  style={{ cursor: 'pointer' }}
+                />
+              </Link>
             </Box>
           </Box>
           <Divider />
@@ -125,7 +142,10 @@ const Playlist = () => {
                       ? new Date((duration - current) * 1000)
                           .toISOString()
                           .slice(14, 19)
-                      : tracks[index]}
+                      : tracks[index] > 0 &&
+                        new Date(tracks[index] * 1000)
+                          .toISOString()
+                          .slice(14, 19)}
                   </Typography>
                 </Grid>
               </Grid>
