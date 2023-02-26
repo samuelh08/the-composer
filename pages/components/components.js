@@ -7,9 +7,12 @@ import Footer from 'components/modules/Footer';
 import LP from 'components/elements/LP';
 import Playlist from 'components/modules/Playlist';
 import DragGallery from 'components/elements/DragGallery';
+import ImageDisplay from 'components/foundation/ImageDisplay';
+import DropDownTable from 'components/elements/DropDownTable';
 
 import DragList from './DragGalleryObject';
-
+import ImageDisplayTest from './ImageDisplayTest';
+import MockDropDown from './MockServiceTable';
 
 const Components = () => {
   return (
@@ -25,6 +28,16 @@ const Components = () => {
         </Grid>
       </Box>
       <DragGallery images={DragList}/>
+      <Grid container justifyContent="center">
+        <Grid item xs={10}>
+          <ImageDisplay images={ImageDisplayTest} />
+        </Grid>
+      </Grid>
+      <Grid container justifyContent="center">
+        <Grid item xs={10} marginBottom={4}>
+          <DropDownTable rows={MockDropDown} />
+        </Grid>
+      </Grid>
       <Footer />
     </>
   );

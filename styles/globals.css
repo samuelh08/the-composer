@@ -16,6 +16,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic;
+  overflow-x: hidden;
 }
 
 a {
@@ -246,4 +247,24 @@ a {
   border-bottom: 0;
   transition: background-position 0.5s 0.2s;
   background-position: 100% 104%;
+}
+
+.collapsible-item {
+  border-bottom: 0.13em solid rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(#000 0 0);
+  background-size: 200% .13em; /* .08em is our fixed height, use what you want  */
+  background-position: 200% 102%;
+  background-repeat: no-repeat;
+  transition: background-position;
+}
+
+.collapsible-item:hover {
+  transition: background-position .7s;
+  background-position: 100% 102%;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
