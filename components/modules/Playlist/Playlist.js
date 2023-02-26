@@ -44,6 +44,17 @@ const Playlist = () => {
   }, [audio]);
 
   useEffect(() => {
+    audio?.addEventListener('ended', () => setPlaying(false));
+    audio?.addEventListener('ended', () => setCurrent(0));
+    audio?.addEventListener('ended', () => setSelected(''));
+    return () => {
+      audio?.removeEventListener('ended', () => setPlaying(false));
+      audio?.removeEventListener('ended', () => setCurrent(0));
+      audio?.removeEventListener('ended', () => setSelected(''));
+    };
+  }, [audio]);
+
+  useEffect(() => {
     audio?.addEventListener('loadedmetadata', () =>
       setDuration(audio?.duration),
     );
@@ -69,8 +80,6 @@ const Playlist = () => {
     }
   };
 
-  console.log(tracks);
-
   return (
     <>
       <Grid container>
@@ -82,7 +91,7 @@ const Playlist = () => {
         <Grid item xs={6}>
           <Box display="flex" justifyContent="space-around" alignItems="center">
             <Typography variant="h3">Playlist Preview</Typography>
-            <Box>
+            <Box display="flex" justifyContent="space-around" width="7rem">
               <Link href={playlist.soundcloud}>
                 <Image
                   src={SoundcloudIconGray}
@@ -122,11 +131,14 @@ const Playlist = () => {
                   <Slider
                     size="small"
                     value={selected === item.title ? current : 0}
+                    onChange={(event) => {
+                      audio.currentTime = event.target.value;
+                    }}
                     max={duration}
                     disabled={selected !== item.title}
                     sx={{
                       color: 'black',
-                      marginRight: '3rem',
+                      width: '95%',
                     }}
                   />
                 </Grid>
