@@ -44,22 +44,30 @@ const Playlist = () => {
   }, [audio]);
 
   useEffect(() => {
-    audio?.addEventListener('ended', () => setPlaying(false));
-    audio?.addEventListener('ended', () => setCurrent(0));
-    audio?.addEventListener('ended', () => setSelected(''));
+    audio?.addEventListener('ended', () => {
+      setPlaying(false);
+      setCurrent(0);
+      setSelected('');
+    });
     return () => {
-      audio?.removeEventListener('ended', () => setPlaying(false));
-      audio?.removeEventListener('ended', () => setCurrent(0));
-      audio?.removeEventListener('ended', () => setSelected(''));
+      audio?.removeEventListener('ended', () => {
+        setPlaying(false);
+        setCurrent(0);
+        setSelected('');
+      });
     };
   }, [audio]);
 
   useEffect(() => {
-    audio?.addEventListener('loadedmetadata', () =>
-      setDuration(audio?.duration),
-    );
+    audio?.addEventListener('loadedmetadata', () => {
+      setDuration(audio?.duration);
+      setCurrent(0);
+    });
     return () => {
-      audio?.removeEventListener('loadedmetadata', () => setDuration(0));
+      audio?.removeEventListener('loadedmetadata', () => {
+        setDuration(0);
+        setCurrent(0);
+      });
     };
   }, [audio]);
 
