@@ -1,14 +1,15 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-import Carousel from 'components/modules/Carousel';
 import TopBar from 'components/modules/TopBar';
-import Footer from 'components/modules/Footer';
+import Carousel from 'components/modules/Carousel';
 import LP from 'components/elements/LP';
 import Playlist from 'components/modules/Playlist';
 import DragGallery from 'components/elements/DragGallery';
 import ImageDisplay from 'components/foundation/ImageDisplay';
 import DropDownTable from 'components/elements/DropDownTable';
+import LetsTalk from 'components/modules/LetsTalk';
+import Footer from 'components/modules/Footer';
 
 import DragList from './DragGalleryObject';
 import ImageDisplayTest from './ImageDisplayTest';
@@ -27,7 +28,7 @@ const Components = () => {
           </Grid>
         </Grid>
       </Box>
-      <DragGallery images={DragList}/>
+      <DragGallery images={DragList} />
       <Grid container justifyContent="center">
         <Grid item xs={10}>
           <ImageDisplay images={ImageDisplayTest} />
@@ -38,6 +39,7 @@ const Components = () => {
           <DropDownTable rows={MockDropDown} />
         </Grid>
       </Grid>
+      <LetsTalk />
       <Footer />
     </>
   );
