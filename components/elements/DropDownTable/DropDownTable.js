@@ -1,7 +1,4 @@
-import { useState, useEffect } from 'react';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 
 import { CollapsibleItem } from './components';
 
