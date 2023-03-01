@@ -26,6 +26,7 @@ const LetsTalk = () => {
         </Typography>
         <Box
           sx={{
+            cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
