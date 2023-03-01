@@ -34,12 +34,28 @@ const LetsTalk = () => {
             borderRadius: '50%',
             border: '1px solid white',
             marginTop: '4rem',
+            ':hover': {
+              '& .MuiTypography-root': { color: 'black' },
+              '& .background': { width: '173.783px', height: '116.7278px' },
+            },
           }}
         >
+          <Box
+            className="background"
+            sx={{
+              position: 'absolute',
+              width: 0,
+              height: 0,
+              backgroundImage: 'linear-gradient(white, white)',
+              transition: '0.5s',
+              zIndex: -1,
+              borderRadius: '50%',
+            }}
+          ></Box>
           <Typography
             variant="subtitle5"
             color="white"
-            sx={{ textTransform: 'uppercase' }}
+            sx={{ textTransform: 'uppercase', transition: 'color 0.5s' }}
           >
             Lets Talk
           </Typography>
