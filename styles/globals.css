@@ -11,12 +11,20 @@
   src: url('../assets/typography/Andale_Mono_Italic.ttf') format('ttf');
 }
 
-html,
+html {
+  height: 100vh;
+}
+
 body {
   padding: 0;
   margin: 0;
   font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic;
+  height: 100vh;
+  width: 100vw;
   overflow-x: hidden;
+  overflow-y: scroll;
+  transform-style: preserve-3d;
+  perspective: 3px;
 }
 
 a {
@@ -252,14 +260,14 @@ a {
 .collapsible-item {
   border-bottom: 0.13em solid rgba(0, 0, 0, 0.3);
   background-image: linear-gradient(#000 0 0);
-  background-size: 200% .13em; /* .08em is our fixed height, use what you want  */
+  background-size: 200% 0.13em; /* .08em is our fixed height, use what you want  */
   background-position: 200% 102%;
   background-repeat: no-repeat;
   transition: background-position;
 }
 
 .collapsible-item:hover {
-  transition: background-position .7s;
+  transition: background-position 0.7s;
   background-position: 100% 102%;
 }
 
