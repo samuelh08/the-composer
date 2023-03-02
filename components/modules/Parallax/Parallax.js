@@ -53,7 +53,7 @@ const Parallax = () => {
           top="1%"
           left="50%"
           style={{
-            transform: 'translateZ(-2px) translate(-50%, -120%) scale(1.8)',
+            transform: 'translateZ(-2px) translate(-50%, -130%) scale(1.8)',
           }}
         >
           eduardo hincapié
