@@ -14,11 +14,13 @@ import Footer from 'components/modules/Footer';
 import DragList from './DragGalleryObject';
 import ImageDisplayTest from './ImageDisplayTest';
 import MockDropDown from './MockServiceTable';
+import Parallax from 'components/modules/Parallax';
 
 const Components = () => {
   return (
     <>
       <TopBar />
+      <Parallax />
       <Carousel />
       <Playlist />
       <Box bgcolor="#000">
