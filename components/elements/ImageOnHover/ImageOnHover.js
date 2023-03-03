@@ -10,6 +10,7 @@ const useMousePosition = () => {
       setMousePosition({ x: e.clientX, y: e.clientY})
     }
 
+    window.addEventListener("scroll", updateMousePosition)
     window.addEventListener("mousemove", updateMousePosition)
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
@@ -23,11 +24,12 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
 
   const [index, setIndex] = useState(0);
   const [opacity, setOpacity] = useState(0);
-  const [zIndex, setZindex] = useState(0);
   const [bounding, setBounding] = useState(null);
   const [imageBox, setImageBox] = useState(null);
-
+  
   const {x, y} = useMousePosition();
+  
+  const zIndex = 0
 
   const inStyle = {
     backgroundImage: `url(${images[index].src})`,
@@ -35,7 +37,8 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
     width: images[index].width,
     zIndex: zIndex,
     position: "absolute",
-    transform: `translate(${opacity !== 0 ? (x - bounding.left - (images[index].width / 2) + "px") : "-50%"}, ${opacity !== 0 ? (y - imageBox.offsetHeight + "px") : "-100%"})`,
+    top: opacity !== 0 ? y - bounding.top - (images[index].height / 2) : 0,
+    left: opacity !== 0 ? x - bounding.left - (images[index].width / 2) : 0,
     boxSizing: "border-box",
     opacity: opacity
   }
@@ -47,8 +50,7 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
 
     setImageBox(cursor);
     setBounding(bounds);
-  }, [])
-
+  }, [y])
 
   return (
     <Box 
@@ -62,7 +64,7 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
         alignItems: "center",
         boxSizin: "boder-box"
       }}
-    >
+      >
       <Box
         display="inlineBlock"
         onMouseLeave={() => {setIndex(index === (images.length - 1) ? 0 : (index + 1)); setOpacity(0)}}
