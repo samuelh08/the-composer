@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 import Slider from "react-slick";
 
 import Image from "next/image";
@@ -57,7 +57,7 @@ const DragGallery = ({images}) => {
     return () => {
       window.removeEventListener("mousemove", positionElement);
       window.removeEventListener("mouseenter", addAttribute);
-      window.removeEventListener("mouseenter", deleteAttribute);
+      window.removeEventListener("mouseleave", deleteAttribute);
     };
   }, [])
 
@@ -70,11 +70,11 @@ const DragGallery = ({images}) => {
   };
 
   return (
-    <div id="drag-cursor" style={{position: "relative", cursor: "none"}}>
+    <div id="drag-cursor" style={{ position: "relative", cursor: "none", overflowX: "hidden", }}>
       <div className="cursor-drag" style={inStyle}></div>
       <Slider {...settings}>
         {images.map((img, i) => {
-          return <Image key={i} src={img.imageSrc} style={{ maxHeight: "580px"}} alt={img.altText}/>
+          return <Image key={i} src={img.imageSrc} alt={img.altText} />
         })}
       </Slider>
     </div>
