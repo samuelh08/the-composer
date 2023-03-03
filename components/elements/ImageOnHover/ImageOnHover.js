@@ -64,6 +64,7 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
         alignItems: "center",
         boxSizin: "boder-box"
       }}
+      className='bound-parent'
       >
       <Box
         display="inlineBlock"

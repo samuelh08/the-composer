@@ -276,3 +276,14 @@ a {
   height: 100%;
   vertical-align: middle;
 }
+
+.cursor-move {
+  background-position: 100% 200%;
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+}
+
+.bound-parent:hover .cursor-move {
+  transition: background-size 0.5s;
+  background-size: 100% 100%;
+}
