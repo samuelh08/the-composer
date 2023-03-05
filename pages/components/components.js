@@ -12,7 +12,6 @@ import DropDownTable from 'components/elements/DropDownTable';
 import LetsTalk from 'components/modules/LetsTalk';
 import Footer from 'components/modules/Footer';
 import ImageOnHover from 'components/elements/ImageOnHover';
-import Parallax from 'components/modules/Parallax';
 
 import DragList from './DragGalleryObject';
 import ImageDisplayTest from './ImageDisplayTest';
@@ -23,7 +22,6 @@ const Components = () => {
   return (
     <>
       <TopBar />
-      <Parallax />
       <Carousel />
       <Playlist />
       <Box bgcolor="#000">
@@ -40,30 +38,19 @@ const Components = () => {
         </Grid>
       </Grid>
       <Grid container justifyContent="center" alignItems="center">
-        <Grid item xs="auto" paddingTop={5} marginTop={5} >
+        <Grid item xs="auto" paddingTop={5} marginTop={5}>
           <ImageOnHover images={DragList.map((obj) => obj.imageSrc)}>
-            <Typography
-              variant="h1"
-              sx={{fontSize: '6.2rem'}}
-            >
+            <Typography variant="h1" sx={{ fontSize: '6.2rem' }}>
               SERVICES
             </Typography>
           </ImageOnHover>
         </Grid>
       </Grid>
       <Grid container justifyContent="center" alignItems="center" marginTop={5}>
-        <Grid item xs="auto" paddingTop={5} marginTop={5} >
+        <Grid item xs="auto" paddingTop={5} marginTop={5}>
           <ImageOnHover images={ExperienceImage.map((obj) => obj.imageSrc)}>
-            <Typography
-              variant="h2"
-            >
-              EXPERIENCE
-            </Typography>
-            <Typography
-              variant="subtitle2"
-            >
-              (2017 - Present)
-            </Typography>
+            <Typography variant="h2">EXPERIENCE</Typography>
+            <Typography variant="subtitle2">(2017 - Present)</Typography>
           </ImageOnHover>
         </Grid>
       </Grid>
