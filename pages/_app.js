@@ -3,6 +3,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import '../styles/globals.css';
+import TopBar from 'components/modules/TopBar';
+import Footer from 'components/modules/Footer';
 
 const theme = createTheme({
   palette: {
@@ -87,7 +89,9 @@ const theme = createTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
+      <TopBar />
       <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   );
 }

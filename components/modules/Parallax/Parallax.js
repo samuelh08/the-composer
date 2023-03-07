@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
 
 import picture from 'assets/pictures/2.png';
@@ -13,6 +12,7 @@ const Parallax = () => {
         minHeight: '100vh',
         position: 'relative',
         transformStyle: 'preserve-3d',
+        marginTop: '6vh',
         '&::before': {
           content: '""',
           width: '100%',
