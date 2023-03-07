@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { Box } from "@mui/material";
 
@@ -25,8 +25,8 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
   const [index, setIndex] = useState(0);
   const [opacity, setOpacity] = useState(0);
   const [bounding, setBounding] = useState(null);
-  const [imageBox, setImageBox] = useState(null);
-  
+  const boundRef = useRef(null)
+
   const {x, y} = useMousePosition();
   
   const zIndex = 0
@@ -44,18 +44,15 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
   }
 
   useEffect(() => {
-    const bound = document.querySelector(".bound");
+    const bound = boundRef.current
     let bounds = bound.getBoundingClientRect();
-    const cursor = document.querySelector(".cursor-move");
 
-    setImageBox(cursor);
     setBounding(bounds);
   }, [y])
 
   return (
     <Box 
       display="flex"
-      id={id}
       style={{ 
         position: "relative",
         padding: "0 auto",
@@ -67,6 +64,7 @@ const ImageOnHover = ({id, images=[], text, size, ...props}) => {
       className='bound-parent'
       >
       <Box
+        ref={boundRef}
         display="inlineBlock"
         onMouseLeave={() => {setIndex(index === (images.length - 1) ? 0 : (index + 1)); setOpacity(0)}}
         onMouseEnter={() => setOpacity(1)}
