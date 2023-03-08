@@ -287,3 +287,30 @@ a {
   transition: background-size 0.5s;
   background-size: 100% 100%;
 }
+
+.css-ypiqx9-MuiDialogContent-root {
+  padding: 0;
+}
+
+.modal-Icons {
+  height: 38px;
+  width: 100%;
+  max-width: 87px;
+  min-width: 87px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: all .3s ease-in-out; 
+}
+
+.modal-Icons:hover {
+  transform: scale(1.1);
+}
+
+.play-stop-button {
+  transition: all .2s ease-in-out; 
+}
+
+.play-stop-button:hover {
+  transform: scale(1.2);
+}

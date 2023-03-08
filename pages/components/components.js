@@ -1,6 +1,9 @@
+import { useState } from 'react';
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 import TopBar from 'components/modules/TopBar';
 import Carousel from 'components/modules/Carousel';
@@ -13,14 +16,20 @@ import LetsTalk from 'components/modules/LetsTalk';
 import Footer from 'components/modules/Footer';
 import ImageOnHover from 'components/elements/ImageOnHover';
 import Parallax from 'components/modules/Parallax';
+import PortfolioModal from 'components/modules/PortfolioModal';
 
 import DragList from './DragGalleryObject';
 import ImageDisplayTest from './ImageDisplayTest';
 import MockDropDown from './MockServiceTable';
 import ExperienceImage from './ExperienceObject';
+import ModalItem from './ModalObject';
+import Arrow from 'assets/img/ArrowReel-01.svg';
 import playlist from './PlaylistObject';
 
 const Components = () => {
+
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <TopBar />
@@ -62,8 +71,18 @@ const Components = () => {
           <DropDownTable rows={MockDropDown} />
         </Grid>
       </Grid>
+      <br/>
+      <br/>
+      <Box bgcolor="#000">
+        <Button onClick={() => setOpen(true)}>
+          Open Modal
+        </Button>
+      </Box>
+      <br/>
+      <br/>
       <LetsTalk />
       <Footer />
+      <PortfolioModal project={ModalItem} open={open} handleClose={() => setOpen(false)}/>
     </>
   );
 };
