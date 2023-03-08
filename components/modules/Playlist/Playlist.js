@@ -3,13 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Box, Divider, Grid, Slider, Typography } from '@mui/material';
 
-import playlist from './constants/Panacea';
 import SoundcloudIconGray from 'assets/img/SoundcloudIconGray.svg';
 import BandcampIconGray from 'assets/img/BandcampIconGray.svg';
 import play from 'assets/img/Play.svg';
 import pause from 'assets/img/Pause.svg';
 
-const Playlist = () => {
+const Playlist = ({ playlist }) => {
   const [selected, setSelected] = useState('');
   const [playing, setPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
@@ -30,7 +29,7 @@ const Playlist = () => {
       return time;
     });
     setTracks(durations);
-  }, [time]);
+  }, [time, playlist]);
 
   useEffect(() => {
     playing ? audio?.play() : audio?.pause();

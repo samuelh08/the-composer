@@ -26,6 +26,7 @@ import MockDropDown from './MockServiceTable';
 import ExperienceImage from './ExperienceObject';
 import ModalItem from './ModalObject';
 import Arrow from 'assets/img/ArrowReel-01.svg';
+import playlist from './PlaylistObject';
 
 const Components = () => {
 
@@ -38,7 +39,7 @@ const Components = () => {
       <TopBar />
       <Parallax />
       <Carousel />
-      <Playlist />
+      <Playlist playlist={playlist} />
       <Box bgcolor="#000">
         <Grid container justifyContent="center">
           <Grid item xs={6} sx={{ height: '100%' }}>
@@ -53,30 +54,19 @@ const Components = () => {
         </Grid>
       </Grid>
       <Grid container justifyContent="center" alignItems="center">
-        <Grid item xs="auto" paddingTop={5} marginTop={5} >
+        <Grid item xs="auto" paddingTop={5} marginTop={5}>
           <ImageOnHover images={DragList.map((obj) => obj.imageSrc)}>
-            <Typography
-              variant="h1"
-              sx={{fontSize: '6.2rem'}}
-            >
+            <Typography variant="h1" sx={{ fontSize: '6.2rem' }}>
               SERVICES
             </Typography>
           </ImageOnHover>
         </Grid>
       </Grid>
       <Grid container justifyContent="center" alignItems="center" marginTop={5}>
-        <Grid item xs="auto" paddingTop={5} marginTop={5} >
+        <Grid item xs="auto" paddingTop={5} marginTop={5}>
           <ImageOnHover images={ExperienceImage.map((obj) => obj.imageSrc)}>
-            <Typography
-              variant="h2"
-            >
-              EXPERIENCE
-            </Typography>
-            <Typography
-              variant="subtitle2"
-            >
-              (2017 - Present)
-            </Typography>
+            <Typography variant="h2">EXPERIENCE</Typography>
+            <Typography variant="subtitle2">(2017 - Present)</Typography>
           </ImageOnHover>
         </Grid>
       </Grid>
