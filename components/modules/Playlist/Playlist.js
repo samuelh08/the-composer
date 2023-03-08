@@ -3,13 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Box, Divider, Grid, Slider, Typography } from '@mui/material';
 
-import playlist from './constants/Panacea';
 import SoundcloudIconGray from 'assets/img/SoundcloudIconGray.svg';
 import BandcampIconGray from 'assets/img/BandcampIconGray.svg';
 import play from 'assets/img/Play.svg';
 import pause from 'assets/img/Pause.svg';
 
-const Playlist = () => {
+const Playlist = ({ playlist }) => {
   const [selected, setSelected] = useState('');
   const [playing, setPlaying] = useState(false);
   const [audio, setAudio] = useState(null);
@@ -30,7 +29,7 @@ const Playlist = () => {
       return time;
     });
     setTracks(durations);
-  }, [time]);
+  }, [time, playlist]);
 
   useEffect(() => {
     playing ? audio?.play() : audio?.pause();
@@ -92,14 +91,14 @@ const Playlist = () => {
     <>
       <Grid container>
         <Grid item xs={6} display="flex" justifyContent="center">
-          <Box marginY="2rem">
+          <Box marginY="2rem" sx={{width: "80%", padding: "5% 10% 16% 10%"}}>
             <Image src={playlist.image} alt={playlist.title} />
           </Box>
         </Grid>
         <Grid item xs={6}>
           <Box display="flex" justifyContent="space-around" alignItems="center">
             <Typography variant="h3">Playlist Preview</Typography>
-            <Box display="flex" justifyContent="space-around" width="7rem">
+            <Box display="flex" justifyContent="space-around" width="7vw">
               <Link href={playlist.soundcloud}>
                 <Image
                   src={SoundcloudIconGray}
@@ -127,12 +126,20 @@ const Playlist = () => {
                   display="flex"
                   justifyContent="center"
                 >
-                  <Image
-                    src={playing && selected === item.title ? pause : play}
-                    alt={playing && selected === item.title ? 'pause' : 'play'}
-                    style={{ cursor: 'pointer' }}
+                  <Box
+                    sx={{ 
+                      backgroundImage: `url(${playing && selected === item.title ? pause.src : play.src})`,
+                      height: "19px",
+                      width: "17px",
+                      cursor: "pointer",
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPositon: "center",
+                      marginTop: "0.5vw"
+                    }}
+                    className="play-stop-button"
                     onClick={() => togglePlay(item)}
-                  />
+                  ></Box>
                 </Grid>
                 <Grid item xs={9}>
                   <Typography variant="subtitle5">{item.title}</Typography>
