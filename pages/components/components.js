@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import Image from "next/image";
-
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -18,7 +16,7 @@ import LetsTalk from 'components/modules/LetsTalk';
 import Footer from 'components/modules/Footer';
 import ImageOnHover from 'components/elements/ImageOnHover';
 import Parallax from 'components/modules/Parallax';
-import PortfolioModal from 'components/elements/PorftofiloModal';
+import PortfolioModal from 'components/modules/PortfolioModal';
 
 import DragList from './DragGalleryObject';
 import ImageDisplayTest from './ImageDisplayTest';
@@ -31,8 +29,6 @@ import playlist from './PlaylistObject';
 const Components = () => {
 
   const [open, setOpen] = useState(false);
-  const [showControls, setShowControls] = useState(false);
-  const [videoFinished, setVideoFinished] = useState(false);
 
   return (
     <>
@@ -86,55 +82,7 @@ const Components = () => {
       <br/>
       <LetsTalk />
       <Footer />
-      <PortfolioModal open={open} handleClose={() => setOpen(false)}>
-        <Box onMouseEnter={() => setShowControls(true)}  sx={{position: "relative"}}>
-          <video autoPlay controls={showControls} width='100%' onEnded={() => setVideoFinished(true)}>
-            <source src={ModalItem.short} type="video/mp4" />
-          </video>
-          {/* <Typography variant="subtitle5" sx={{zIndex: 99, position: "absolute", bottom: "20px"}}>SCROLL <span ><Image src={Arrow} alt={'Arrow down'} /></span> FOR MORE</Typography> */}
-        </Box>
-        <Grid container spacing={4} sx={{marginY: "6vw", paddingX: 6}}>
-          <Grid item xs={12} sx={{paddingY: "8vw"}}>
-            <Box display="flex" justifyContent="center">
-              <Typography variant="subtitle1">{ModalItem.quote}</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={5} paddingTop={9}>
-           {ModalItem.firstSection.left.map((obj, i) => (
-             <Box display='flex-inline' paddingBottom={4}>
-               <Typography variant="h5" sx={{textTransform: "uppercase", paddingBottom: "1vw"}}>{obj.title}</Typography>
-               <Typography variant="subtitle5">{obj.text}</Typography>
-             </Box>
-           ))}
-          </Grid>
-          <Grid item xs={7} marginBottom={4}>
-           {ModalItem.firstSection.right.map((obj, i) => (
-             <Box sx={{ paddingBottom: "5vw" }}>
-               <Typography variant="subtitle2" sx={{ textDecoration: "underline", paddingBottom: "2vw"}}>{obj.title}</Typography>
-               <Typography variant="subtitle2">{obj.text}</Typography>
-              </Box>
-           ))}
-          </Grid>
-          <Grid item xs={12} sx={{marginY: "5vw"}}>
-            <Playlist />
-          </Grid>
-          <Grid item xs={12}>
-            <Box display="flex" justifyContent="center">
-              <Typography sx={{ lineHeight: '144pt', fontSize: '7.5rem',}}>{ModalItem.secondSection.title}</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={5} paddingTop={9}>
-             <Box display='flex-inline' paddingBottom={4}>
-              <Typography variant="subtitle2" sx={{ textTransform: "uppercase", textDecoration: "underline", paddingBottom: "1vw" }}>{ModalItem.secondSection.subtitle}</Typography>
-             </Box>
-          </Grid>
-          <Grid item xs={7} paddingTop={9}>
-            <Box display='flex-inline' paddingBottom={4}>
-              <Typography variant="subtitle2">{ModalItem.secondSection.text}</Typography>
-            </Box>
-          </Grid>
-        </Grid>
-      </PortfolioModal>
+      <PortfolioModal project={ModalItem} open={open} handleClose={() => setOpen(false)}/>
     </>
   );
 };

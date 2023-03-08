@@ -91,14 +91,14 @@ const Playlist = ({ playlist }) => {
     <>
       <Grid container>
         <Grid item xs={6} display="flex" justifyContent="center">
-          <Box marginY="2rem">
+          <Box marginY="2rem" sx={{width: "80%", padding: "5% 10% 16% 10%"}}>
             <Image src={playlist.image} alt={playlist.title} />
           </Box>
         </Grid>
         <Grid item xs={6}>
           <Box display="flex" justifyContent="space-around" alignItems="center">
             <Typography variant="h3">Playlist Preview</Typography>
-            <Box display="flex" justifyContent="space-around" width="7rem">
+            <Box display="flex" justifyContent="space-around" width="7vw">
               <Link href={playlist.soundcloud}>
                 <Image
                   src={SoundcloudIconGray}
@@ -126,12 +126,20 @@ const Playlist = ({ playlist }) => {
                   display="flex"
                   justifyContent="center"
                 >
-                  <Image
-                    src={playing && selected === item.title ? pause : play}
-                    alt={playing && selected === item.title ? 'pause' : 'play'}
-                    style={{ cursor: 'pointer' }}
+                  <Box
+                    sx={{ 
+                      backgroundImage: `url(${playing && selected === item.title ? pause.src : play.src})`,
+                      height: "19px",
+                      width: "17px",
+                      cursor: "pointer",
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPositon: "center",
+                      marginTop: "0.5vw"
+                    }}
+                    className="play-stop-button"
                     onClick={() => togglePlay(item)}
-                  />
+                  ></Box>
                 </Grid>
                 <Grid item xs={9}>
                   <Typography variant="subtitle5">{item.title}</Typography>

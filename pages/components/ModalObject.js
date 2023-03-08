@@ -1,5 +1,5 @@
 import Banner from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenImage.png";
-import Icon from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenIcon.png"
+import image from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenIcon.png"
 import Short from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRaven.mp4"
 import Sample from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenMuestra.mp3"
 
@@ -9,7 +9,6 @@ const ModalObject = {
   quote: "The raven always caws by dusk, then you’ll know…",
   banner: Banner,
   short: Short,
-  icon: Icon,
   firstSection: {
     left:[
       {
@@ -32,12 +31,15 @@ const ModalObject = {
       },
     ]
   },
-  samples: [
-    {
-      title: "The sign of the raven",
-      music: Sample
-    }
-  ],
+  playlist: {
+    title: "The sign of the raven",
+    image,
+    soundcloud: '',
+    bandcamp: '',
+    tracks: [
+      { title: "The sign of the raven", audio: Sample },
+    ],
+  },
   secondSection: {
     title: "THE MUSIC",
     subtitle: "The inspiration: ",
@@ -46,7 +48,7 @@ const ModalObject = {
   },
   credits: [
     {
-      title: "illustratrion",
+      title: "Illustratrion",
       by: "andyJ.art"
     },
     {

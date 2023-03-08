@@ -1,9 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import Popover from "@mui/material/Popover";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
-import Typography from "@mui/material/Typography";
 
 import Image from "next/image";
 
@@ -33,7 +31,8 @@ export default function MaxWidthDialog({open=false, handleClose, ...props }) {
             sx={{
               display: "flex",
               flexDirection: "column",
-              overflowX: 'hidden'
+              overflowX: 'hidden',
+              color: "#000"
             }}
           >
             {props.children}
