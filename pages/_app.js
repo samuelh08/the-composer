@@ -1,12 +1,10 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-import TopBar from 'components/modules/TopBar';
-import Footer from 'components/modules/Footer';
-import Playlist from 'components/modules/Playlist';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import '../styles/globals.css';
+import TopBar from 'components/modules/TopBar';
+import Footer from 'components/modules/Footer';
 
 const theme = createTheme({
   palette: {
@@ -21,7 +19,7 @@ const theme = createTheme({
     fontFamily: 'Hebden Grotesque, Andale Mono, Andale Mono Italic',
     fontSize: 16,
     '@media (min-width:600px)': {
-      fontSize: 12
+      fontSize: 12,
     },
     h1: {
       fontFamily: 'Hebden Grotesque',
@@ -91,7 +89,9 @@ const theme = createTheme({
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
+      <TopBar />
       <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   );
 }

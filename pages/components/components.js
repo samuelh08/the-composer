@@ -33,7 +33,6 @@ const Components = () => {
   return (
     <>
       <TopBar />
-      <Parallax />
       <Carousel />
       <Playlist playlist={playlist} />
       <Box bgcolor="#000">

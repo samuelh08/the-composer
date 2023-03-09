@@ -13,9 +13,21 @@
 
 html {
   height: 100vh;
+  overflow: hidden;
 }
 
 body {
+  padding: 0;
+  margin: 0;
+  font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 3px;
+}
+
+#__next {
   padding: 0;
   margin: 0;
   font-family: Hebden Grotesque, Andale Mono, Andale Mono Italic;
@@ -25,6 +37,7 @@ body {
   overflow-y: scroll;
   transform-style: preserve-3d;
   perspective: 3px;
+  background-color: #000;
 }
 
 a {
@@ -44,6 +57,19 @@ a {
     color: white;
     background: black;
   }
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+  content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: white; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
 
 .footer-title {

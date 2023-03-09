@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { AppBar, Box, Grid, Link } from '@mui/material';
 
@@ -9,6 +10,7 @@ import TopBarMenu from './constants/TopBarMenu';
 import TopBarIcons from './constants/TopBarIcons';
 
 const TopBar = () => {
+  const router = useRouter();
   const [onIcon, setOnIcon] = useState(false);
   const [activeItem, setActiveItem] = useState(null);
   const [scrollY, setScrollY] = useState(0);
@@ -53,7 +55,14 @@ const TopBar = () => {
                   alignItems="center"
                 >
                   <Grid item minHeight={'19px'}>
-                    <div hidden={activeItem !== item.title && 'hidden'}>
+                    <div
+                      hidden={
+                        activeItem === item.title ||
+                        router.pathname === item.path
+                          ? ''
+                          : 'hidden'
+                      }
+                    >
                       <Image key={i} src={Selected} alt="selected" />
                     </div>
                   </Grid>
@@ -61,7 +70,12 @@ const TopBar = () => {
                     <Link
                       href={item.path}
                       underline="none"
-                      color={activeItem === item.title ? '#FFFFFF' : '#444444'}
+                      color={
+                        activeItem === item.title ||
+                        router.pathname === item.path
+                          ? '#FFFFFF'
+                          : '#444444'
+                      }
                       fontFamily="Hebden Grotesque"
                       fontSize={'10.79pt'}
                       marginX={2}
