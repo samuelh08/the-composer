@@ -1,7 +1,9 @@
-import Banner from "assets/Portfolio/Rebot/RebotImage.png";
-import image from "assets/Portfolio/Rebot/RebotIcon.png"
-import Short from "assets/Portfolio/Rebot/Rebot.mp4"
-import Sample from "assets/Portfolio/Rebot/RebotMuestra.mp3"
+import { lazy } from 'react';
+
+const Banner = lazy(() => ("assets/Portfolio/Rebot/RebotImageTiny.png"));
+const image = lazy(() => ("assets/Portfolio/Rebot/RebotIconTiny.png"));
+const Short = lazy(() => ("assets/Portfolio/Rebot/Rebot.mp4"));
+const Sample = lazy(() => ("assets/Portfolio/Rebot/RebotMuestra.mp3"));
 
 
 const RebotObject = {
