@@ -1,7 +1,9 @@
-import Banner from "assets/Portfolio/Serenidad/SerenidadImage.png";
-import image from "assets/Portfolio/Serenidad/SerenidadIcon.png"
-import Short from "assets/Portfolio/Serenidad/Serenidad.mp4"
-import Sample from "assets/Portfolio/Serenidad/SerenidadMuestra.mp3"
+import { lazy } from 'react';
+
+const Banner = lazy(() => import("assets/Portfolio/Serenidad/SerenidadImage.png"));
+const image = lazy(() => import("assets/Portfolio/Serenidad/SerenidadIconTiny.png"));
+const Short = lazy(() => import("assets/Portfolio/Serenidad/Serenidad.mp4"));
+const Sample = lazy(() => import("assets/Portfolio/Serenidad/SerenidadMuestra.mp3"));
 
 
 const SerenidadObject = {

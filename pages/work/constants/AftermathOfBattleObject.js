@@ -1,6 +1,7 @@
-import Banner from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleImage.png";
-import Short from "assets/Portfolio/AftermathOfBattle/AftermathOfBattle.mp4"
-import Sample from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleMuestra.mp3"
+import { lazy } from 'react';
+const Banner = lazy(() => import("assets/Portfolio/AftermathOfBattle/AftermathOfBattleImageTiny.png"));
+const Short = lazy(() => import("assets/Portfolio/AftermathOfBattle/AftermathOfBattle.mp4"));
+const Sample = lazy(() => import("assets/Portfolio/AftermathOfBattle/AftermathOfBattleMuestra.mp3"));
 
 
 const AftermathOfBattleObject = {

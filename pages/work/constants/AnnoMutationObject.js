@@ -1,11 +1,13 @@
-import Banner from "assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationemImage.png";
-import Short from "assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationem.mp4"
-import Sample from "assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationemMuestra.mp3"
+import { lazy } from "react";
 
-import sample1 from "assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/SetThingsInMotion(Preview).mp3"
-import sample2 from "assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/NeonMetropolis(Preview).mp3"
-import sample3 from "assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/LateNightCity(Preview).mp3"
-import sample4 from "assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/LateNightBar(Preview).mp3"
+const Banner = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationemImageTiny.png"));
+const Short = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationem.mp4"));
+const Sample = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationemMuestra.mp3"));
+
+const sample1 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/SetThingsInMotion(Preview).mp3"));
+const sample2 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/NeonMetropolis(Preview).mp3"));
+const sample3 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/LateNightCity(Preview).mp3"));
+const sample4 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/LateNightBar(Preview).mp3"));
 
 const AnnoMutationemObject = {
   display:{

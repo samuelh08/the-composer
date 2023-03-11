@@ -1,7 +1,9 @@
-import Banner from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenImage.png";
-import image from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenIcon.png"
-import Short from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRaven.mp4"
-import Sample from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenMuestra.mp3"
+import { lazy } from 'react';
+
+const Banner = lazy(() => import("assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenImageTiny.png"));
+const image = lazy(() => import("assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenIconTiny.png"));
+const Short = lazy(() => import("assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRaven.mp4"));
+const Sample = lazy(() => import("assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenMuestra.mp3"));
 
 
 const RavenObject = {

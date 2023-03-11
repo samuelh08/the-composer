@@ -1,7 +1,10 @@
-import Banner from "assets/Portfolio/PolarityPuzzles/PolarityImage.png";
-import image from "assets/Portfolio/PolarityPuzzles/PolarityIcon.png"
+import { lazy } from 'react';
+
+const Banner = lazy(() => import("assets/Portfolio/PolarityPuzzles/PolarityImageTiny.png"));
+const image = lazy(() => import("assets/Portfolio/PolarityPuzzles/PolarityIconTiny.png"));
+const Sample = lazy(() => import("assets/Portfolio/PolarityPuzzles/PolarityMuestra.mp3"));
+
 //import Short from "assets/Portfolio/PolarityPuzzles/Polarity.mp4"
-import Sample from "assets/Portfolio/PolarityPuzzles/PolarityMuestra.mp3"
 
 
 const PolarityObject = {

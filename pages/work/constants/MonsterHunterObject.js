@@ -1,4 +1,4 @@
-import Banner from "assets/Portfolio/MonsterHunterWorld(Reimagined)/MonsterHunterImage.png";
+import Banner from "assets/Portfolio/MonsterHunterWorld(Reimagined)/MonsterHunterImageTiny.png";
 import Short from "assets/Portfolio/MonsterHunterWorld(Reimagined)/MonsterHunter.mp4"
 import Sample from "assets/Portfolio/MonsterHunterWorld(Reimagined)/MonsterHunterMuestra.mp3"
 

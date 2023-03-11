@@ -1,4 +1,4 @@
-import Banner from "assets/Portfolio/Panacea/PanaceaImage.png";
+import Banner from "assets/Portfolio/Panacea/PanaceaImageTiny.png";
 import Short from "assets/Portfolio/Panacea/Panacea.mp4"
 import Sample from "assets/Portfolio/Panacea/PanaceaMuestra.mp3"
 
