@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import LazyLoad from 'react-lazyload';
 
 import Image from 'next/image';
 
@@ -10,7 +11,23 @@ import { Box, Grid, Typography } from '@mui/material';
 import play from 'assets/img/Play.svg';
 import pause from 'assets/img/Pause.svg';
 
-const ImageDisplay = ({images = []}) => {
+const LazyLoadImageListItem = (props) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+  }
+
+  return (
+    <LazyLoad once style={{display: props.useBlock ? "block" : "none" }}>
+      <ImageListItem {...props} onLoad={handleLoad} style={{...props.style, opacity: isLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}>
+        {props.children}
+      </ImageListItem>
+    </LazyLoad>
+  );
+}
+
+const ImageDisplay = ({images = [], filteredText='all'}) => {
   const matches = useMediaQuery('(min-width:600px)');
   const [selected, setSelected] = useState('');
   const [audio, setAudio] = useState(null);
@@ -53,116 +70,120 @@ const ImageDisplay = ({images = []}) => {
 
   return (
     <ImageList sx={{ height: '100%' }} cols={matches ? 3 : 2} gap={8}>
-      {images.map((item, i) => (
-        <ImageListItem 
-          key={i} 
-          style={{cursor: 'pointer'}}
-          position='relative'
-          onMouseEnter={() => setActiveElement(item.title)}
-          onMouseLeave={() => setActiveElement(null)}
-        >
-          <Image
-            src={item.src}
-            srcSet={item.src}
-            alt={item.altText}
-            loading="lazy"
-            style={{
-              filter:
-                activeElement === item.title ||
+      {images && images.map(({index, item}) => (
+          <LazyLoadImageListItem 
+            key={index}
+            useBlock={(item.category.toLowerCase().includes(filteredText) || filteredText === "all")}
+            style={{cursor: 'pointer', height: '100%'}}
+            position='relative'
+            onMouseEnter={() => setActiveElement(item.title)}
+            onMouseLeave={() => setActiveElement(null)}
+          >
+            <Box height="27vw" width="25vw">
+              <Image
+                layout='fill'
+                objectFit='cover'
+                src={item.src}
+                alt={item.altText}
+                loading="lazy"
+                style={{
+                  filter:
+                  activeElement === item.title ||
                   selected === item.title
                   ? 'grayscale(100)'
                   : 'none',
-            }}
-          />
-          <Box
-            width="100%"
-            height="100%"
-            position="absolute"
-            top="0%"
-            textAlign="center"
-            flexDirection="column"
-            flexWrap="wrap"
-            alignContent="center"
-            alignItems="center"
-            justifyContent="center"
-            display={
-              activeElement === item.title || selected === item.title
-                ? 'flex'
-                : 'none'
-            }
-          >
+                }}
+              />
+            </Box>
             <Box
-              height="20%"
-              width="20%"
-              padding="10px"
-              borderRadius="50%"
-              display="inline-block"
-              border="solid white 0.2vw"
-              style={{
-                backgroundColor: 'white',
-                backgroundImage:
-                  selected === item.title
-                    ? `conic-gradient(#444444 ${(current * 100) / audio?.duration
-                    }%, white ${(current * 100) / audio?.duration
-                    }% ${((audio?.duration - current) * 100) /
-                    audio?.duration
-                    }%)`
-                    : 'none',
-              }}
+              width="100%"
+              height="100%"
+              position="absolute"
+              bottom="0%"
+              textAlign="center"
+              flexDirection="column"
+              flexWrap="wrap"
+              alignContent="center"
+              alignItems="center"
+              justifyContent="center"
+              display={
+                activeElement === item.title || selected === item.title
+                  ? 'flex'
+                  : 'none'
+              }
             >
-              <Grid
-                container
-                height="100%"
-                width="100%"
+              <Box
+                height="5vw"
+                width="5vw"
+                padding="10px"
                 borderRadius="50%"
-                bgcolor="white"
-                alignContent="center"
-                justifyContent="center"
-                onClick={() => {
-                  togglePlay(item);
+                display="inline-block"
+                border="solid white 0.2vw"
+                style={{
+                  backgroundColor: 'white',
+                  backgroundImage:
+                    selected === item.title
+                      ? `conic-gradient(#444444 ${(current * 100) / audio?.duration
+                      }%, white ${(current * 100) / audio?.duration
+                      }% ${((audio?.duration - current) * 100) /
+                      audio?.duration
+                      }%)`
+                      : 'none',
                 }}
               >
-                <Grid item xs={3}></Grid>
                 <Grid
-                  item
-                  xs={selected === item.title ? 6 : 7}
-                  display="flex"
+                  container
+                  height="100%"
+                  width="100%"
+                  borderRadius="50%"
+                  bgcolor="white"
+                  alignContent="center"
                   justifyContent="center"
+                  onClick={() => {
+                    togglePlay(item);
+                  }}
                 >
-                  <Image
-                    src={
-                      (selected === item.title) & playing
-                        ? pause
-                        : play
-                    }
-                    alt={
-                      (selected === item.title) & playing
-                        ? 'pause'
-                        : 'play'
-                    }
-                    height="40%"
-                    width="40%"
-                  />
+                  <Grid item xs={3}></Grid>
+                  <Grid
+                    item
+                    xs={selected === item.title ? 6 : 7}
+                    display="flex"
+                    justifyContent="center"
+                  >
+                    <Image
+                      src={
+                        (selected === item.title) & playing
+                          ? pause
+                          : play
+                      }
+                      alt={
+                        (selected === item.title) & playing
+                          ? 'pause'
+                          : 'play'
+                      }
+                      height="40%"
+                      width="40%"
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={(selected === item.title) & playing ? 3 : 2}
+                  ></Grid>
                 </Grid>
-                <Grid
-                  item
-                  xs={(selected === item.title) & playing ? 3 : 2}
-                ></Grid>
-              </Grid>
+              </Box>
+              <Typography variant="h6" color="white" marginTop="2vh">
+                {item.title}
+              </Typography>
+              <Typography
+                variant="subtitle5"
+                color="white"
+                sx={{ textTransform: 'uppercase' }}
+                marginTop="2vh"
+              >
+                {item.category}
+              </Typography>
             </Box>
-            <Typography variant="h6" color="white" marginTop="2vh">
-              {item.title}
-            </Typography>
-            <Typography
-              variant="subtitle5"
-              color="white"
-              sx={{ textTransform: 'uppercase' }}
-              marginTop="2vh"
-            >
-              {item.category}
-            </Typography>
-          </Box>
-        </ImageListItem>
+          </LazyLoadImageListItem>
       ))}
     </ImageList>
   )
