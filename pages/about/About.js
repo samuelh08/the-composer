@@ -1,19 +1,19 @@
 import React from 'react';
 import { Box, Grid, Link, List, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
+import Image from 'next/image';
 
 import LP from 'components/elements/LP';
 import LetsTalk from 'components/modules/LetsTalk';
+import Parallax from 'components/modules/Parallax';
+import ImageOnHover from 'components/elements/ImageOnHover';
 
 import picture2 from 'assets/pictures/3.png';
-import Image from 'next/image';
+import stamp from 'assets/img/Eduar_Stamp.svg';
 
 import ExperienceImage from './ExperienceObject';
 import AchievementImage from './AchievementObject';
-
 import FooterSocial from 'components/modules/Footer/constants/FooterSocial';
-import Parallax from 'components/modules/Parallax';
-import ImageOnHover from 'components/elements/ImageOnHover';
 
 const About = () => {
   return (
@@ -40,8 +40,15 @@ const About = () => {
         </Typography>
         <Grid container>
           <Grid item xs={6} display="flex" justifyContent="center">
-            <Box marginLeft="5rem">
+            <Box marginX="5rem" position="relative">
               <Image src={picture2} alt="about" />
+              <Box
+                position="absolute"
+                left="50%"
+                style={{ transform: 'translate(-50%, -50%)' }}
+              >
+                <Image src={stamp} alt="stamp" />
+              </Box>
             </Box>
           </Grid>
           <Grid
@@ -157,20 +164,20 @@ const About = () => {
           </Grid>
           <Grid item xs={6}>
             <Box marginRight="5rem">
-              <ul>
-                <li>
+              <ul className="achievement-list">
+                <li className="achievement-list-item">
                   <Typography variant="subtitle4" color="white">
                     Two times finalist in the contest *New Talents in Arts* by
                     the Chamber of Commerce of Medellín for Antioquia.
                   </Typography>
                 </li>
-                <li>
+                <li className="achievement-list-item">
                   <Typography variant="subtitle4" color="white">
                     Composer for the investigation group of music & technology,
                     MUSUX. Which was awarded an artistic scholarship in 2018.
                   </Typography>
                 </li>
-                <li>
+                <li className="achievement-list-item">
                   <Typography variant="subtitle4" color="white">
                     Accepted at the Victoria University of Wellington to carry
                     out his academic internship 2020.

@@ -59,11 +59,11 @@ a {
   }
 }
 
-ul {
+.achievement-list {
   list-style: none; /* Remove default bullets */
 }
 
-ul li::before {
+.achievement-list li::before {
   content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
   color: white; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
@@ -326,7 +326,7 @@ ul li::before {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  transition: all .3s ease-in-out; 
+  transition: all 0.3s ease-in-out;
 }
 
 .modal-Icons:hover {
@@ -334,7 +334,7 @@ ul li::before {
 }
 
 .play-stop-button {
-  transition: all .2s ease-in-out; 
+  transition: all 0.2s ease-in-out;
 }
 
 .play-stop-button:hover {
