@@ -57,6 +57,7 @@ const Services = () => {
           textAlign="center"
           display="flex"
           justifyContent="center"
+          marginBottom="2rem"
         >
           <Typography variant="subtitle4" color="white">
             SCROLL
