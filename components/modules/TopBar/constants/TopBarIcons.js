@@ -2,10 +2,10 @@ import TwitterIconGray from 'assets/img/TwitterIconGray.svg';
 import TwitterIconWhite from 'assets/img/TwitterIconWhite.svg';
 import InstagramIconGray from 'assets/img/InstagramIconGray.svg';
 import InstagramIconWhite from 'assets/img/InstagramIconWhite.svg';
-import BandcampIconGray from 'assets/img/BandcampIconGray.svg';
-import BandcampIconWhite from 'assets/img/BandcampIconWhite.svg';
-import SoundcloudIconGray from 'assets/img/SoundcloudIconGray.svg';
-import SoundcloudIconWhite from 'assets/img/SoundcloudIconWhite.svg';
+import BandcampIconGray from 'assets/img/BandCampIconGray.svg';
+import BandcampIconWhite from 'assets/img/BandCampIconWhite.svg';
+import SoundcloudIconGray from 'assets/img/SoundCloudIconGray.svg';
+import SoundcloudIconWhite from 'assets/img/SoundCloudIconWhite.svg';
 
 const Content = [
   {

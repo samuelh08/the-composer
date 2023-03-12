@@ -1,7 +1,7 @@
 const Content = [
   {
     title: 'SoundCloud',
-    href: '#',
+    href: 'https://soundcloud.com/eddbeatmusic',
   },
   {
     title: 'Spotify',
@@ -9,11 +9,11 @@ const Content = [
   },
   {
     title: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/eddbeatmusic_/',
   },
   {
     title: 'Twitter',
-    href: '#',
+    href: 'https://twitter.com/eddbeatmusic',
   },
 ];
 
