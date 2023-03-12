@@ -1,9 +1,11 @@
-import { Box, Link, Typography } from '@mui/material';
 import React from 'react';
+import { useRouter } from 'next/router';
+import { Box, Link, Typography } from '@mui/material';
 
 import background from 'assets/video/1. ALTA CALIDAD BAJO PESO.mp4';
 
 const LetsTalk = () => {
+  const router = useRouter();
   return (
     <Box position="relative" width="100%">
       <video autoPlay loop muted>
@@ -39,6 +41,9 @@ const LetsTalk = () => {
               '& .MuiTypography-root': { color: 'black' },
               '& .background': { width: '173.783px', height: '116.7278px' },
             },
+          }}
+          onClick={() => {
+            router.push('/contact');
           }}
         >
           <Box
