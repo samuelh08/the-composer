@@ -38,6 +38,7 @@ const TopBar = () => {
         height: scrollY === 0 ? '104px' : '72px',
         transition: 'height 1s ease',
         justifyContent: 'center',
+        borderBottom: 'solid 1px white',
       }}
     >
       <Grid container alignItems="center">
