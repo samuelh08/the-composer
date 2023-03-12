@@ -1,57 +1,61 @@
+import React, { useEffect } from 'react';
+import Image from 'next/image';
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import Rellax from 'rellax';
 
 import picture from 'assets/pictures/2.png';
 import firma from 'assets/img/FIRMA.png';
 
 const Parallax = () => {
+  useEffect(() => {
+    new Rellax('.picture', {
+      speed: 5,
+      center: false,
+      wrapper: '#__next',
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+    new Rellax('.signature', {
+      speed: 8,
+      center: false,
+      wrapper: '#__next',
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
+
   return (
     <Box
-      sx={{
-        width: '100%',
-        minHeight: '100vh',
-        position: 'relative',
-        transformStyle: 'preserve-3d',
-        marginTop: '6vh',
-        '&::before': {
-          content: '""',
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          backgroundImage: `url(${picture.src})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          transform: 'translateZ(-1px) scale(1.2)',
-        },
-        '&::after': {
-          content: '""',
-          width: '100%',
-          height: '100%',
-          position: 'absolute',
-          backgroundImage: `url(${firma.src})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'bottom center',
-          filter: 'invert(1)',
-          transform: 'translateY(16%) scale(0.4)',
-        },
-      }}
+      textAlign="center"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      style={{ backgroundColor: 'black' }}
     >
       <Typography
         color="white"
         textAlign="center"
         fontSize="6.4rem"
         variant="h1"
-        position="absolute"
-        top="1%"
-        left="50%"
         letterSpacing="20px"
         lineHeight={1}
-        style={{
-          transform: 'translateZ(-2px) translate(-50%, -130%) scale(1.8)',
-        }}
+        width="50rem"
+        marginTop="3rem"
       >
         eduardo hincapié
       </Typography>
+      <Box width="30rem" className="picture">
+        <Image src={picture} alt="" />
+      </Box>
+      <Box width="20rem" className="signature">
+        <Image
+          src={firma}
+          alt="Eduardo's signature"
+          style={{ filter: 'invert(1)' }}
+        />
+      </Box>
     </Box>
   );
 };

@@ -21,11 +21,7 @@ const About = () => {
       <Parallax />
       <Box
         style={{
-          width: '100%',
-          minHeight: '100vh',
-          position: 'relative',
           background: 'black',
-          transformStyle: 'preserve-3d',
         }}
       >
         <Typography
@@ -33,7 +29,7 @@ const About = () => {
           color="white"
           marginX="22vw"
           textAlign="center"
-          marginY="5rem"
+          marginBottom="5rem"
         >
           My goal is always to make outstanding sounds and original soundtracks
           that will help amplify the narrative and experience of your project.
