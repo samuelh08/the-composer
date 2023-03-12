@@ -80,7 +80,7 @@ const Services = () => {
       <Box ref={bottomRef}>
         <DragGallery images={DragList} />
       </Box>
-      <Grid container justifyContent="center">
+      <Grid container justifyContent="center" marginBottom="10rem">
         <Grid item xs={10} marginBottom={4}>
           <DropDownTable rows={DropDown} />
         </Grid>
