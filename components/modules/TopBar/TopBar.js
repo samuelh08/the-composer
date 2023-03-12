@@ -17,14 +17,16 @@ const TopBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      setScrollY(document.getElementById('__next').scrollTop);
     };
 
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    document.getElementById('__next').addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      document
+        .getElementById('__next')
+        .removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -36,6 +38,7 @@ const TopBar = () => {
         height: scrollY === 0 ? '104px' : '72px',
         transition: 'height 1s ease',
         justifyContent: 'center',
+        borderBottom: 'solid 1px white',
       }}
     >
       <Grid container alignItems="center">

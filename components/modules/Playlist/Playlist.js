@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Box, Divider, Grid, Slider, Typography } from '@mui/material';
 
-import SoundcloudIconGray from 'assets/img/SoundcloudIconGray.svg';
-import BandcampIconGray from 'assets/img/BandcampIconGray.svg';
+import SoundcloudIconGray from 'assets/img/SoundCloudIconGray.svg';
+import BandcampIconGray from 'assets/img/BandCampIconGray.svg';
 import play from 'assets/img/Play.svg';
 import pause from 'assets/img/Pause.svg';
 
@@ -91,7 +91,7 @@ const Playlist = ({ playlist }) => {
     <>
       <Grid container>
         <Grid item xs={6} display="flex" justifyContent="center">
-          <Box marginY="2rem" sx={{width: "80%", padding: "5% 10% 16% 10%"}}>
+          <Box marginY="2rem" sx={{ width: '80%', padding: '5% 10% 16% 10%' }}>
             <Image src={playlist.image} alt={playlist.title} />
           </Box>
         </Grid>
@@ -127,15 +127,19 @@ const Playlist = ({ playlist }) => {
                   justifyContent="center"
                 >
                   <Box
-                    sx={{ 
-                      backgroundImage: `url(${playing && selected === item.title ? pause.src : play.src})`,
-                      height: "19px",
-                      width: "17px",
-                      cursor: "pointer",
-                      backgroundSize: "contain",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPositon: "center",
-                      marginTop: "0.5vw"
+                    sx={{
+                      backgroundImage: `url(${
+                        playing && selected === item.title
+                          ? pause.src
+                          : play.src
+                      })`,
+                      height: '19px',
+                      width: '17px',
+                      cursor: 'pointer',
+                      backgroundSize: 'contain',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPositon: 'center',
+                      marginTop: '0.5vw',
                     }}
                     className="play-stop-button"
                     onClick={() => togglePlay(item)}
