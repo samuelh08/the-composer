@@ -17,14 +17,16 @@ const TopBar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      setScrollY(document.getElementById('__next').scrollTop);
     };
 
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    document.getElementById('__next').addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      document
+        .getElementById('__next')
+        .removeEventListener('scroll', handleScroll);
     };
   }, []);
 
