@@ -51,6 +51,13 @@ const Services = () => {
             </Typography>
           </ImageOnHover>
         </Grid>
+        <Grid item xs={12} display={'flex'} justifyContent={'end'}>
+          <Box width="13rem" marginRight="25vw">
+            <Typography variant="subtitle5" color="white">
+              Creativity is at the core of everything
+            </Typography>
+          </Box>
+        </Grid>
         <Grid
           item
           xs={12}
