@@ -1,11 +1,11 @@
 const Content = [
   {
-    title: 'SoundCloud',
+    title: 'Sound Cloud',
     href: 'https://soundcloud.com/eddbeatmusic',
   },
   {
-    title: 'Spotify',
-    href: '#',
+    title: 'Band Camp',
+    href: 'https://eddbeatmusic.bandcamp.com/',
   },
   {
     title: 'Instagram',

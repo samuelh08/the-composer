@@ -7,7 +7,7 @@ const Content = [
   {
     title: 'services',
     path: '/services',
-    sub: 'skillS',
+    sub: 'skills',
   },
   {
     title: 'about',
