@@ -29,7 +29,7 @@ const Work = () => {
   const [filtered, setFiltered] = useState('all');
   const [open, setOpen] = useState(null);
   const galeryList = PortfolioListGalery || [];
-  const { project, setProject } = useProjectContext
+  const { project, setProject } = useProjectContext()
 
   const handleClick = (e) => {
     const filterby = e.target.innerText.toLowerCase()
@@ -47,7 +47,6 @@ const Work = () => {
       setProject(null);
     }
   }, [open])
-
 
   return (
     <Box display="flex" flexWrap="wrap" justifyContent="center" bgcolor="#000">
