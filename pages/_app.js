@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../styles/globals.css';
 import TopBar from 'components/modules/TopBar';
 import Footer from 'components/modules/Footer';
+import { ProjectProvider } from 'context/ModalContext';
 
 const theme = createTheme({
   palette: {
@@ -90,7 +91,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <TopBar />
-      <Component {...pageProps} />
+      <ProjectProvider>
+        <Component {...pageProps} />
+      </ProjectProvider>
       <Footer />
     </ThemeProvider>
   );

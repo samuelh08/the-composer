@@ -1,16 +1,9 @@
-import Banner from "assets/Portfolio/FallingStar/FallingStarImageTny.png";
-import Short from "assets/Portfolio/FallingStar/FallingStar.mp4"
-import Sample from "assets/Portfolio/FallingStar/FallingStarMuestra.mp3"
+import Banner from "assets/Portfolio/FallingStar/FallingStarImageTiny.png";
+import Sample from "assets/Portfolio/FallingStar/FallingStarMuestra.mp3";
+import Short from "assets/Portfolio/FallingStar/FallingStar.mp4";
 
 
 const FallingStarObject = {
-  display:{
-    title: "Falling Star",
-    category: 'FILM & ANIMATION',
-    src: Banner,
-    altText: 'Icon of Falling Star',
-    audio: Sample
-  },
   title: "FallingStar",
   quote: "Reach out and don’t let go",
   banner: Banner,
@@ -39,7 +32,7 @@ const FallingStarObject = {
   },
   playlist: {
     title: "Falling Star",
-    image,
+    Banner,
     soundcloud: '',
     bandcamp: '',
     tracks: [

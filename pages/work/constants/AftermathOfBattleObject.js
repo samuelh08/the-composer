@@ -1,17 +1,9 @@
-import { lazy } from 'react';
-const Banner = lazy(() => import("assets/Portfolio/AftermathOfBattle/AftermathOfBattleImageTiny.png"));
-const Short = lazy(() => import("assets/Portfolio/AftermathOfBattle/AftermathOfBattle.mp4"));
-const Sample = lazy(() => import("assets/Portfolio/AftermathOfBattle/AftermathOfBattleMuestra.mp3"));
+import Banner from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleImageTiny.png";
+import Sample from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleMuestra.mp3";
+import Short from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleTiny.mp4";
 
 
 const AftermathOfBattleObject = {
-  display:{
-    title: "Aftermath Of Battle",
-    category: 'FILM & ANIMATION, SOUND DESIGN',
-    src: Banner,
-    altText: 'Icon of Aftermath Of Battle',
-    audio: Sample
-  },
   title: "Aftermath Of Battle",
   quote: "The battle might have been over, but not the war. Onward…",
   banner: Banner,
@@ -40,7 +32,7 @@ const AftermathOfBattleObject = {
   },
   playlist: {
     title: "Aftermath Of Battle",
-    image,
+    Banner,
     soundcloud: '',
     bandcamp: '',
     tracks: [

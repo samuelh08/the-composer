@@ -18,7 +18,7 @@ const PortfolioModal = ({ project, open, handleClose }) => {
   const [videoFinished, setVideoFinished] = useState(false);
 
   return (
-    <PortfolioWrapper open={open} handleClose={handleClose}>
+    project && <PortfolioWrapper open={open} handleClose={handleClose}>
       <Box onMouseEnter={() => setShowControls(true)} sx={{ position: "relative" }}>
         <video autoPlay controls={showControls} width="100%" onEnded={() => setVideoFinished(true)}>
           <source src={project.short} type="video/mp4" />
@@ -32,7 +32,7 @@ const PortfolioModal = ({ project, open, handleClose }) => {
           </Box>
         </Grid>
         <Grid item xs={5} paddingTop={9}>
-          {project.firstSection.left.map((obj, i) => (
+          {project?.firstSection?.left?.map((obj, i) => (
             <Box key={i} display="flex-inline" paddingBottom={4}>
               <Typography variant="h5" sx={{ textTransform: "uppercase", paddingBottom: "1vw" }}>{obj.title}</Typography>
               <Typography variant="subtitle5">{obj.text}</Typography>
@@ -40,7 +40,7 @@ const PortfolioModal = ({ project, open, handleClose }) => {
           ))}
         </Grid>
         <Grid item xs={7} marginBottom={4}>
-          {project.firstSection.right.map((obj, i) => (
+          {project?.firstSection?.right?.map((obj, i) => (
             <Box key={i} sx={{ paddingBottom: "5vw" }}>
               <Typography variant="subtitle2" sx={{ textDecoration: "underline", paddingBottom: "2vw" }}>{obj.title}</Typography>
               <Typography variant="subtitle2">{obj.text}</Typography>
@@ -72,7 +72,7 @@ const PortfolioModal = ({ project, open, handleClose }) => {
           </Box>
         </Grid>
         <Grid item container xs={7} sx={{ marginBottom: "8vw" }}>
-          {project.credits.map((obj, i) => (
+          {project?.credits?.map((obj, i) => (
             <Grid key={i} item xs={6} sx={{ paddingBottom: "5vw", paddingTop: "0.5vw" }}>
               <Typography variant="subtitle4" sx={{ paddingBottom: "2vw" }}>{obj.title}</Typography>
               <Typography variant="h5" sx={{ textTransform: "uppercase" }}>{obj.by}</Typography>
@@ -86,7 +86,7 @@ const PortfolioModal = ({ project, open, handleClose }) => {
         </Grid>
       </Grid>
       <Grid container justifyContent="center" sx={{ marginBottom: "2vw" }}>
-        {TopBarIcons.map((item, i) => {
+        {TopBarIcons?.map((item, i) => {
           return (
             <Grid item key={i}>
               <Link href={item.path}>

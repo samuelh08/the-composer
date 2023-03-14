@@ -1,16 +1,15 @@
-import { lazy } from "react";
+import MonsterHunterObject from "./MonsterHunterObject";
+import RavenObject from "./TheSignOfTheRavenObject";
+import SerenidadObject from "./SerenidadObject";
+import RebotObject from "./RebotObject";
+import PolarityObject from "./PolarityObject";
+import PanaceaObject from "./PanaceaObject";
+import FallingStarObject from "./FallingStarObject";
+import AlkymObject from "./AlkymObject";
+import AftermathOfBattleObject from "./AftermathOfBattleObject";
+import AnnoMutationemObject from "./AnnoMutationemObject";
 
-const RavenObject = () => lazy(() => import('./TheSignOfTheRavenObject'));
-const SerenidadObject = () => lazy(() => import("./SerenidadObject"));
-const RebotObject = () => lazy(() => import("./RebotObject"));
-const PolarityObject = () => lazy(() => import("./PolarityObject"));
-const PanaceaObject = () => lazy(() => import("./PanaceaObject"));
-const FallingStarObject = () => lazy(() => import("./FallingStarObject"));
-const AlkymObject = () => lazy(() => import("./AlkymObject"));
-const AftermathOfBattleObject = () => lazy(() => import("./AftermathOfBattleObject"));
-const MonsterHunterObject = () => lazy(() => import("./MonsterHunterObject"));
-
-const ImagesDisplayInfo = [
+const PortfolioList = [
   RavenObject,
   SerenidadObject,
   RebotObject,
@@ -19,8 +18,8 @@ const ImagesDisplayInfo = [
   FallingStarObject,
   AlkymObject,
   AftermathOfBattleObject,
-  AnnoMutationObject,
-  MonsterHunterObject
+  MonsterHunterObject,
+  AnnoMutationemObject,
 ]
 
-export default ImagesDisplayInfo;
+export default PortfolioList;

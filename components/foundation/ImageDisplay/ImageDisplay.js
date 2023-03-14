@@ -19,7 +19,7 @@ const LazyLoadImageListItem = (props) => {
   }
 
   return (
-    <LazyLoad once style={{display: props.useBlock ? "block" : "none" }}>
+    <LazyLoad once style={{display: props.appear ? "block" : "none" }}>
       <ImageListItem {...props} onLoad={handleLoad} style={{...props.style, opacity: isLoaded ? 1 : 0, transition: "opacity 0.3s ease" }}>
         {props.children}
       </ImageListItem>
@@ -27,7 +27,7 @@ const LazyLoadImageListItem = (props) => {
   );
 }
 
-const ImageDisplay = ({images = [], filteredText='all'}) => {
+const ImageDisplay = ({images, filteredText='all', handleSelection}) => {
   const matches = useMediaQuery('(min-width:600px)');
   const [selected, setSelected] = useState('');
   const [audio, setAudio] = useState(null);
@@ -68,16 +68,21 @@ const ImageDisplay = ({images = [], filteredText='all'}) => {
     }
   };
 
+  const handleClick = (index) => {
+    handleSelection(index)
+  }
+
   return (
     <ImageList sx={{ height: '100%' }} cols={matches ? 3 : 2} gap={8}>
       {images && images.map(({index, item}) => (
           <LazyLoadImageListItem 
             key={index}
-            useBlock={(item.category.toLowerCase().includes(filteredText) || filteredText === "all")}
+            appear={(item.category.toLowerCase().includes(filteredText) || filteredText === "all")}
             style={{cursor: 'pointer', height: '100%'}}
             position='relative'
             onMouseEnter={() => setActiveElement(item.title)}
             onMouseLeave={() => setActiveElement(null)}
+            onClick={() => handleClick(index)}
           >
             <Box height="27vw" width="25vw">
               <Image
