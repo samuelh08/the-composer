@@ -1,16 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import Image from 'next/image';
 import { Box, Grid, Typography } from '@mui/material';
 
 import ArrowGray from 'assets/img/PortfolioArrowNext-01.svg';
 import ArrowWhite from 'assets/img/PortfolioArrowNext-02-01.svg';
 
-import CarouselImages from './constants/CarouselImages';
-
 import play from 'assets/img/Play.svg';
 import pause from 'assets/img/Pause.svg';
 
-const Carousel = () => {
+const Carousel = ({ handleClick, CarouselListGallery }) => {
   const [activeElement, setActiveElement] = useState(null);
   const [clicked, setClicked] = useState(null);
   const [selected, setSelected] = useState('');
@@ -128,19 +127,24 @@ const Carousel = () => {
                   boxSizing: 'border-box',
                 }}
               >
-                {CarouselImages.map((item, index) => (
+                {CarouselListGallery.map(({ item, index }) => (
                   <Box
                     key={index}
                     marginX="0.5vw"
                     style={{ width: '26vw', height: '26vw', cursor: 'pointer' }}
                     position="relative"
+                    onClick={() => {
+                      handleClick(index);
+                    }}
                     onMouseEnter={() => setActiveElement(item.title)}
                     onMouseLeave={() => setActiveElement(null)}
                   >
                     <Image
                       key={index}
                       alt={item.title}
-                      src={item.image}
+                      src={item.src}
+                      layout="fill"
+                      objectFit="cover"
                       style={{
                         filter:
                           activeElement === item.title ||
@@ -249,7 +253,7 @@ const Carousel = () => {
         <Grid item xs={1} display="flex" justifyContent="center">
           <Box
             display={
-              slide === Math.ceil(CarouselImages.length / 3) - 1
+              slide === Math.ceil(CarouselListGallery.length / 3) - 1
                 ? 'none'
                 : 'block'
             }
@@ -275,7 +279,7 @@ const Carousel = () => {
         alignItems="center"
         style={{ backgroundColor: '#000000' }}
       >
-        {Array.from({ length: Math.ceil(CarouselImages.length / 3) }).map(
+        {Array.from({ length: Math.ceil(CarouselListGallery.length / 3) }).map(
           (item, index) => {
             return (
               <Typography
@@ -310,6 +314,11 @@ const Carousel = () => {
       </Box>
     </>
   );
+};
+
+Carousel.propTypes = {
+  CarouselListGallery: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 export default Carousel;

@@ -15,7 +15,6 @@ import DropDownTable from 'components/elements/DropDownTable';
 import LetsTalk from 'components/modules/LetsTalk';
 import Footer from 'components/modules/Footer';
 import ImageOnHover from 'components/elements/ImageOnHover';
-import Parallax from 'components/modules/Parallax';
 import PortfolioModal from 'components/modules/PortfolioModal';
 
 import DragList from './DragGalleryObject';
@@ -23,17 +22,19 @@ import ImageDisplayTest from './ImageDisplayTest';
 import MockDropDown from './MockServiceTable';
 import ExperienceImage from './ExperienceObject';
 import ModalItem from './ModalObject';
-import Arrow from 'assets/img/ArrowReel-01.svg';
 import playlist from './PlaylistObject';
+import CarouselListGallery from './CarouselListGalery';
 
 const Components = () => {
-
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <TopBar />
-      <Carousel />
+      <Carousel
+        CarouselListGallery={CarouselListGallery}
+        handleClick={() => {}}
+      />
       <Playlist playlist={playlist} />
       <Box bgcolor="#000">
         <Grid container justifyContent="center">
@@ -70,18 +71,20 @@ const Components = () => {
           <DropDownTable rows={MockDropDown} />
         </Grid>
       </Grid>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <Box bgcolor="#000">
-        <Button onClick={() => setOpen(true)}>
-          Open Modal
-        </Button>
+        <Button onClick={() => setOpen(true)}>Open Modal</Button>
       </Box>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <LetsTalk />
       <Footer />
-      <PortfolioModal project={ModalItem} open={open} handleClose={() => setOpen(false)}/>
+      <PortfolioModal
+        project={ModalItem}
+        open={open}
+        handleClose={() => setOpen(false)}
+      />
     </>
   );
 };
