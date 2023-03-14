@@ -1,6 +1,6 @@
 import Banner from "assets/Portfolio/Alkym/AlkymIconTiny.png";
 import Sample from "assets/Portfolio/Alkym/AlkymMuestra.mp3";
-import Short from "assets/Portfolio/Alkym/Alkym.mp4";
+import Short from "assets/Portfolio/Alkym/AlkymTiny.mp4";
 
 
 const AlkymObject = {

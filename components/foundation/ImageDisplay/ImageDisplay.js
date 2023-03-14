@@ -73,7 +73,7 @@ const ImageDisplay = ({images, filteredText='all', handleSelection}) => {
   }
 
   return (
-    <ImageList sx={{ height: '100%' }} cols={matches ? 3 : 2} gap={8}>
+    <ImageList sx={{ height: '100%', overflowX: 'hidden' }} cols={matches ? 3 : 2} gap={8}>
       {images && images.map(({index, item}) => (
           <LazyLoadImageListItem 
             key={index}
@@ -84,7 +84,7 @@ const ImageDisplay = ({images, filteredText='all', handleSelection}) => {
             onMouseLeave={() => setActiveElement(null)}
             onClick={() => handleClick(index)}
           >
-            <Box height="27vw" width="25vw">
+            <Box height="27vw" width="27vw" sx={{position: 'relative'}}>
               <Image
                 layout='fill'
                 objectFit='cover'

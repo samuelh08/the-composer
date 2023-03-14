@@ -1,5 +1,5 @@
 import Banner from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenImageTiny.png"; 
-import Short from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRaven.mp4";
+import Short from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenTiny.mp4";
 import image from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenIconTiny.png";
 import Sample from "assets/Portfolio/TheSignOfTheRaven/TheSignOfTheRavenMuestra.mp3";
 

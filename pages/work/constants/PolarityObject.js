@@ -1,7 +1,7 @@
 import Banner from "assets/Portfolio/PolarityPuzzles/PolarityImageTiny.png";
 import image from "assets/Portfolio/PolarityPuzzles/PolarityIconTiny.png";
 import Sample from "assets/Portfolio/PolarityPuzzles/PolarityMuestra.mp3";
-import Short from "assets/Portfolio/PolarityPuzzles/Polarity.mp4";
+import Short from "assets/Portfolio/PolarityPuzzles/PolarityTiny.mp4";
 
 
 const PolarityObject = {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LazyLoad from 'react-lazyload';
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -11,7 +12,7 @@ import TopBarIcons from "components/modules/TopBar/constants/TopBarIcons";
 import Carousel from "components/modules/Carousel";
 import ArrowLink from "assets/img/ArrowLink-01.svg";
 
-const PortfolioModal = ({ project, open, handleClose }) => {
+const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
 
   const [activeItem, setActiveItem] = useState(null);
   const [showControls, setShowControls] = useState(false);
@@ -20,9 +21,11 @@ const PortfolioModal = ({ project, open, handleClose }) => {
   return (
     project && <PortfolioWrapper open={open} handleClose={handleClose}>
       <Box onMouseEnter={() => setShowControls(true)} sx={{ position: "relative" }}>
-        <video autoPlay controls={showControls} width="100%" onEnded={() => setVideoFinished(true)}>
-          <source src={project.short} type="video/mp4" />
-        </video>
+        <LazyLoad once>
+          <video autoPlay controls={showControls} width="100%" onEnded={() => setVideoFinished(true)}>
+            <source src={project.short} type="video/mp4" />
+          </video>
+        </LazyLoad>
         {/* <Typography variant="subtitle5" sx={{zIndex: 99, position: "absolute", bottom: "20px"}}>SCROLL <span ><Image src={Arrow} alt={"Arrow down"} /></span> FOR MORE</Typography> */}
       </Box>
       <Grid container spacing={4} sx={{ marginY: "6vw", paddingX: "4vw" }}>
@@ -118,7 +121,7 @@ const PortfolioModal = ({ project, open, handleClose }) => {
           <Typography variant="subtitle3" color="#fff">VIEW ALL PROJECTS</Typography>
         </Grid>
         <Grid item sx={{padding: "1vw"}}>
-          <Carousel />
+          <Carousel CarouselListGallery={carouselImages} handleClick={() => {}}/>
         </Grid>
       </Grid>
     </PortfolioWrapper>

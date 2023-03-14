@@ -1,6 +1,6 @@
 import Banner from "assets/Portfolio/FallingStar/FallingStarImageTiny.png";
 import Sample from "assets/Portfolio/FallingStar/FallingStarMuestra.mp3";
-import Short from "assets/Portfolio/FallingStar/FallingStar.mp4";
+import Short from "assets/Portfolio/FallingStar/FallingStarTiny.mp4";
 
 
 const FallingStarObject = {

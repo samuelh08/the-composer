@@ -1,5 +1,5 @@
 import Banner from "assets/Portfolio/MonsterHunterWorld/MonsterHunterImageTiny.png";
-import Short from "assets/Portfolio/MonsterHunterWorld/MonsterHunter.mp4";
+import Short from "assets/Portfolio/MonsterHunterWorld/MonsterHunterTiny.mp4";
 
 import sample1 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/ANewExpedition(Preview).mp3";
 import sample2 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/ChaseThyPrey(Preview).mp3";

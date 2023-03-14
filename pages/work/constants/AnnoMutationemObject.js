@@ -1,5 +1,5 @@
 import Banner from "assets/Portfolio/AnnoMutationem/AnnoMutationemImageTiny.png";
-import Short from "assets/Portfolio/AnnoMutationem/AnnoMutationem.mp4";
+import Short from "assets/Portfolio/AnnoMutationem/AnnoMutationemTiny.mp4";
 
 import sample1 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/SetThingsInMotion(Preview).mp3";
 import sample2 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/NeonMetropolis(Preview).mp3";

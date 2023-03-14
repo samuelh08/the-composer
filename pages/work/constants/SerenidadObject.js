@@ -1,7 +1,7 @@
 //import Banner from "assets/Portfolio/Serenidad/SerenidadImage.png";
 import image from "assets/Portfolio/Serenidad/SerenidadIconTiny.png";
 import Sample from "assets/Portfolio/Serenidad/SerenidadMuestra.mp3";
-import Short from "assets/Portfolio/Serenidad/Serenidad.mp4";
+import Short from "assets/Portfolio/Serenidad/SerenidadTiny.mp4";
 
 const SerenidadObject = {
   title: "Serenidad",

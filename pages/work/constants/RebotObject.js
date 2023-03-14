@@ -1,7 +1,7 @@
 import Banner from "assets/Portfolio/Rebot/RebotImageTiny.png";
 import image from "assets/Portfolio/Rebot/RebotIconTiny.png";
 import Sample from "assets/Portfolio/Rebot/RebotMuestra.mp3";
-import Short from "assets/Portfolio/Rebot/Rebot.mp4";
+import Short from "assets/Portfolio/Rebot/RebotTiny.mp4";
 
 
 const RebotObject = {
