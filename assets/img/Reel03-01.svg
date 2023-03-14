@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 166.85 166.85" style="enable-background:new 0 0 166.85 166.85;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#545454;}
-	.st1{fill:#FFFFFF;}
-	.st2{fill:none;stroke:#FFFFFF;stroke-width:0.75;stroke-miterlimit:10;}
-	.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
-</style>
-<g>
-	<g>
-		<circle class="st1" cx="83.42" cy="83.42" r="83.42"/>
-	</g>
-	<polygon points="84.84,83.42 99.76,68.51 98.34,67.09 83.42,82 68.51,67.09 67.8,67.8 67.53,68.06 67.53,68.06 67.09,68.51 
-		82,83.42 67.09,98.34 68.51,99.76 83.42,84.84 98.34,99.76 99.05,99.05 99.32,98.78 99.31,98.78 99.76,98.34 	"/>
-</g>
-</svg>
+<svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 166.85 166.85" style="enable-background:new 0 0 166.85 166.85" xml:space="preserve"><style>.st0{fill:#545454}.st2,.st3{fill:none;stroke-miterlimit:10}.st2{stroke:#fff;stroke-width:.75}.st3{stroke:#000}</style><circle cx="83.42" cy="83.42" r="83.42" style="fill:#fff"/><path d="m84.84 83.42 14.92-14.91-1.42-1.42L83.42 82 68.51 67.09l-.71.71-.27.26-.44.45L82 83.42 67.09 98.34l1.42 1.42 14.91-14.92 14.92 14.92.71-.71.27-.27h-.01l.45-.44z"/></svg>
