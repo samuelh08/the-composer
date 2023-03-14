@@ -9,7 +9,7 @@ import ArrowWhite from 'assets/img/PortfolioArrowNext-02-01.svg';
 import play from 'assets/img/Play.svg';
 import pause from 'assets/img/Pause.svg';
 
-const Carousel = ({ onClick, CarouselListGallery }) => {
+const Carousel = ({ handleClick, CarouselListGallery }) => {
   const [activeElement, setActiveElement] = useState(null);
   const [clicked, setClicked] = useState(null);
   const [selected, setSelected] = useState('');
@@ -127,26 +127,28 @@ const Carousel = ({ onClick, CarouselListGallery }) => {
                   boxSizing: 'border-box',
                 }}
               >
-                {CarouselListGallery.map((item, index) => (
+                {CarouselListGallery.map(({ item, index }) => (
                   <Box
-                    key={item.index}
+                    key={index}
                     marginX="0.5vw"
                     style={{ width: '26vw', height: '26vw', cursor: 'pointer' }}
                     position="relative"
-                    onClick={onClick}
-                    onMouseEnter={() => setActiveElement(item.item.title)}
+                    onClick={() => {
+                      handleClick(index);
+                    }}
+                    onMouseEnter={() => setActiveElement(item.title)}
                     onMouseLeave={() => setActiveElement(null)}
                   >
                     <Image
-                      key={item.index}
-                      alt={item.item.title}
-                      src={item.item.src}
+                      key={index}
+                      alt={item.title}
+                      src={item.src}
                       layout="fill"
                       objectFit="cover"
                       style={{
                         filter:
-                          activeElement === item.item.title ||
-                          selected === item.item.title
+                          activeElement === item.title ||
+                          selected === item.title
                             ? 'grayscale(100)'
                             : 'none',
                       }}
@@ -163,8 +165,7 @@ const Carousel = ({ onClick, CarouselListGallery }) => {
                       alignItems="center"
                       justifyContent="center"
                       display={
-                        activeElement === item.item.title ||
-                        selected === item.item.title
+                        activeElement === item.title || selected === item.title
                           ? 'flex'
                           : 'none'
                       }
@@ -179,7 +180,7 @@ const Carousel = ({ onClick, CarouselListGallery }) => {
                         style={{
                           backgroundColor: 'white',
                           backgroundImage:
-                            selected === item.item.title
+                            selected === item.title
                               ? `conic-gradient(#444444 ${
                                   (current * 100) / audio?.duration
                                 }%, white ${
@@ -200,24 +201,24 @@ const Carousel = ({ onClick, CarouselListGallery }) => {
                           alignContent="center"
                           justifyContent="center"
                           onClick={() => {
-                            togglePlay(item.item);
+                            togglePlay(item);
                           }}
                         >
                           <Grid item xs={3}></Grid>
                           <Grid
                             item
-                            xs={selected === item.item.title ? 6 : 7}
+                            xs={selected === item.title ? 6 : 7}
                             display="flex"
                             justifyContent="center"
                           >
                             <Image
                               src={
-                                (selected === item.item.title) & playing
+                                (selected === item.title) & playing
                                   ? pause
                                   : play
                               }
                               alt={
-                                (selected === item.item.title) & playing
+                                (selected === item.title) & playing
                                   ? 'pause'
                                   : 'play'
                               }
@@ -227,14 +228,12 @@ const Carousel = ({ onClick, CarouselListGallery }) => {
                           </Grid>
                           <Grid
                             item
-                            xs={
-                              (selected === item.item.title) & playing ? 3 : 2
-                            }
+                            xs={(selected === item.title) & playing ? 3 : 2}
                           ></Grid>
                         </Grid>
                       </Box>
                       <Typography variant="h6" color="white" marginTop="2vh">
-                        {item.item.title}
+                        {item.title}
                       </Typography>
                       <Typography
                         variant="subtitle5"
@@ -242,7 +241,7 @@ const Carousel = ({ onClick, CarouselListGallery }) => {
                         sx={{ textTransform: 'uppercase' }}
                         marginTop="2vh"
                       >
-                        {item.item.category}
+                        {item.category}
                       </Typography>
                     </Box>
                   </Box>

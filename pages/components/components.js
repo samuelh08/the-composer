@@ -31,7 +31,10 @@ const Components = () => {
   return (
     <>
       <TopBar />
-      <Carousel CarouselListGallery={CarouselListGallery} />
+      <Carousel
+        CarouselListGallery={CarouselListGallery}
+        handleClick={() => {}}
+      />
       <Playlist playlist={playlist} />
       <Box bgcolor="#000">
         <Grid container justifyContent="center">
