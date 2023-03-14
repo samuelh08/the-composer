@@ -1,7 +1,10 @@
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { useRouter } from 'next/router';
 
 const LP = () => {
+  const router = useRouter();
+
   return (
     <Grid
       container
@@ -9,6 +12,9 @@ const LP = () => {
       min-height="20rem"
       min-width="33.5rem"
       className="lp-component"
+      onClick={() => {
+        router.push('/work');
+      }}
     >
       <Grid item xs={2} paddingTop="8%" className="left-text">
         <Typography
