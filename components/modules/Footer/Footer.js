@@ -14,9 +14,8 @@ import FooterMenu from './constants/FooterMenu';
 import FooterSocial from './constants/FooterSocial';
 
 const Footer = () => {
-  //TODO: navegate when pages are ready
   const theme = useTheme();
-  const { pathname } = useRouter();
+  const { push, pathname } = useRouter();
   const clipboardRef = useRef(null);
   const [activeClipBoard, setActiveClipBoard] = useState(false);
   const [mousePos, setMousePos] = useState({});
@@ -56,6 +55,9 @@ const Footer = () => {
                 pathname === item.path ? 'active-footer' : 'footer-title'
               }
               key={i}
+              onClick={() => {
+                push(item.path);
+              }}
             >
               <Box
                 sx={{
