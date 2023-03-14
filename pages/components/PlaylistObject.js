@@ -1,4 +1,4 @@
-import image from 'assets/test/test5.jpg';
+import image from 'assets/Portfolio/Panacea/PanaceaImageTiny.png';
 
 import test from 'assets/audio/test.mp3';
 
