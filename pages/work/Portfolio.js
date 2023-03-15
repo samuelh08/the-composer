@@ -87,6 +87,7 @@ const Work = () => {
   useEffect(() =>{
     if (open === false) {
       setProject(null);
+      setSelection(null);
     }
   }, [open])
 
