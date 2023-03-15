@@ -317,7 +317,7 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
 };
 
 Carousel.propTypes = {
-  CarouselListGallery: PropTypes.object,
+  CarouselListGallery: PropTypes.array,
   onClick: PropTypes.func,
 };
 
