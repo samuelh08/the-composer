@@ -1,7 +1,7 @@
 const Content = [
   {
     title: 'home',
-    path: '/',
+    path: '/home',
   },
   {
     title: 'work',

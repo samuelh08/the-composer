@@ -105,9 +105,9 @@ const Footer = () => {
           alignItems="flex-end"
         >
           <Grid item xs={12} md={6} sx={{ paddingLeft: '7%' }}>
-            <a href="#">
+            <Link href="/">
               <Image src={logo} alt="Eduardo's Logo" width="160vw" />
-            </a>
+            </Link>
           </Grid>
           <Grid item container xs={12} md={6}>
             <Grid item xs={7}>
