@@ -23,9 +23,12 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
 
   return (
     project && <PortfolioWrapper open={open} handleClose={handleClose}>
-      <Box onMouseEnter={() => setShowControls(true)} sx={{ position: "relative", maxHeight:"100vh" }}>
+      <Box 
+        onMouseEnter={() => setShowControls(true)}
+        sx={{ position: "relative", maxHeight:"100vh", height:"100vh", backgroundColor: "#000", position: "relative" }}
+      >
         <LazyLoad once>
-          <video autoPlay controls={showControls} width="100%" height='100%' onEnded={() => setVideoFinished(true)}>
+          <video autoPlay controls={showControls} width="100%" height='90%' onEnded={() => setVideoFinished(true)} style={{position: "absolute"}}>
             <source src={project.short} type="video/mp4" />
           </video>
         </LazyLoad>
@@ -41,7 +44,7 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
           {project?.firstSection?.left?.map((obj, i) => {
             if (obj.title.toLowerCase().includes('view')){
               return (
-                <a key={i} href={obj.link} style={{textDecoration: 'none'}} target='_blank'>
+                <Link key={i} href={obj.link} style={{textDecoration: 'none'}} target='_blank'>
                   <Box  display="flex-inline" position="absolute" paddingBottom={4}>
                     <Typography
                       variant="subtitle4"
@@ -61,7 +64,7 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
                       style={{ transform: 'translate(-1em, 0px)' }}
                       />
                   </Box>
-                </a>
+                </Link>
               )
             } else {
               return(
@@ -122,7 +125,7 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
         {TopBarIcons?.map((item, i) => {
           return (
             <Grid item key={i}>
-              <a href={item.path} target='_blank'>
+              <Link href={item.path} target='_blank'>
                 <Box
                   className="modal-Icons"
                   alt={item.title}
@@ -136,7 +139,7 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
                     setActiveItem(null);
                   }}
                 ></Box>
-              </a>
+              </Link>
             </Grid>
           );
         })}

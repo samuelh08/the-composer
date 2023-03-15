@@ -1,5 +1,5 @@
 import Short from "assets/Portfolio/Panacea/PanaceaTiny.mp4";
-import Banner from "assets/Portfolio/Panacea/PanaceaImageTiny.png";
+import image from "assets/Portfolio/Panacea/PanaceaImageTiny.png";
 
 import sample1 from "assets/Portfolio/Panacea/SoundtrackPreview/PanaceaBeach(Preview).mp3"
 import sample2 from "assets/Portfolio/Panacea/SoundtrackPreview/PanaceaCombatTheme(Preview).mp3"
@@ -12,7 +12,6 @@ import sample7 from "assets/Portfolio/Panacea/SoundtrackPreview/Rona'sTheme(Prev
 const PanaceaObject = {
   title: "Panacea",
   quote: "A turn-based RPG following three professionals as they traverse the virus-ridden island in search of the source of malice.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
@@ -42,7 +41,7 @@ const PanaceaObject = {
   },
   playlist: {
     title: "Panacea",
-    Banner,
+    image,
     soundcloud: '',
     bandcamp: '',
     tracks: [

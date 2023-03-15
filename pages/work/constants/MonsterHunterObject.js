@@ -1,4 +1,4 @@
-import Banner from "assets/Portfolio/MonsterHunterWorld/MonsterHunterImageTiny.png";
+import image from "assets/Portfolio/MonsterHunterWorld/MonsterHunterImageTiny.png";
 import Short from "assets/Portfolio/MonsterHunterWorld/MonsterHunterTiny.mp4";
 
 import sample1 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/ANewExpedition(Preview).mp3";
@@ -9,7 +9,6 @@ import sample4 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/TheHu
 const MonsterHunterObject = {
   title: "Monster Hunter World (Reimagined)",
   quote: "…enjoy the ultimate hunting experience! Use everything at your disposal to hunt monsters in a new world teeming with surprises and excitement.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
@@ -35,7 +34,7 @@ const MonsterHunterObject = {
   },
   playlist: {
     title: "Monster Hunter World (Reimagined)",
-    Banner,
+    image,
     soundcloud: '',
     bandcamp: '',
     tracks: [

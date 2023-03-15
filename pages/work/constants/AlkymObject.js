@@ -1,4 +1,4 @@
-import Banner from "assets/Portfolio/Alkym/AlkymIconTiny.png";
+import image from "assets/Portfolio/Alkym/AlkymIconTiny.png";
 import Sample from "assets/Portfolio/Alkym/AlkymMuestra.mp3";
 import Short from "assets/Portfolio/Alkym/AlkymTiny.mp4";
 
@@ -6,7 +6,6 @@ import Short from "assets/Portfolio/Alkym/AlkymTiny.mp4";
 const AlkymObject = {
   title: "Alkym",
   quote: "Test your skills on this platform game by overcoming the four elements through the power of alchemy.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
@@ -32,7 +31,7 @@ const AlkymObject = {
   },
   playlist: {
     title: "Alkym",
-    Banner,
+    image,
     soundcloud: '',
     bandcamp: '',
     tracks: [

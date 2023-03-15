@@ -1,4 +1,4 @@
-import Banner from "assets/Portfolio/FallingStar/FallingStarImageTiny.png";
+import image from "assets/Portfolio/FallingStar/FallingStarImageTiny.png";
 import Sample from "assets/Portfolio/FallingStar/FallingStarMuestra.mp3";
 import Short from "assets/Portfolio/FallingStar/FallingStarTiny.mp4";
 
@@ -6,7 +6,6 @@ import Short from "assets/Portfolio/FallingStar/FallingStarTiny.mp4";
 const FallingStarObject = {
   title: "FallingStar",
   quote: "Reach out and don’t let go",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
@@ -32,7 +31,7 @@ const FallingStarObject = {
   },
   playlist: {
     title: "Falling Star",
-    Banner,
+    image,
     soundcloud: '',
     bandcamp: '',
     tracks: [

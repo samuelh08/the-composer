@@ -1,4 +1,4 @@
-import Banner from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleImageTiny.png";
+import image from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleImageTiny.png";
 import Sample from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleMuestra.mp3";
 import Short from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleTiny.mp4";
 
@@ -6,7 +6,6 @@ import Short from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleTiny.mp4"
 const AftermathOfBattleObject = {
   title: "Aftermath Of Battle",
   quote: "The battle might have been over, but not the war. Onward…",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
@@ -32,7 +31,7 @@ const AftermathOfBattleObject = {
   },
   playlist: {
     title: "Aftermath Of Battle",
-    Banner,
+    image,
     soundcloud: '',
     bandcamp: '',
     tracks: [

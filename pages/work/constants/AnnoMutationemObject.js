@@ -1,4 +1,4 @@
-import Banner from "assets/Portfolio/AnnoMutationem/AnnoMutationemImageTiny.png";
+import image from "assets/Portfolio/AnnoMutationem/AnnoMutationemImageTiny.png";
 import Short from "assets/Portfolio/AnnoMutationem/AnnoMutationemTiny.mp4";
 
 import sample1 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/SetThingsInMotion(Preview).mp3";
@@ -9,7 +9,6 @@ import sample4 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/LateNight
 const AnnoMutationemObject = {
   title: "Anno Mutationem (Reimagined)",
   quote: "…Become Ann: a highly-skilled combat-trained lone wolf on a personal mission in this action-adventure game with RPG elements set in a cyberpunk world.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
@@ -35,7 +34,7 @@ const AnnoMutationemObject = {
   },
   playlist: {
     title: "Anno Mutationem (Reimagined)",
-    Banner,
+    image,
     soundcloud: '',
     bandcamp: '',
     tracks: [
