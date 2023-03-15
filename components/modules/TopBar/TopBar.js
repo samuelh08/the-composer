@@ -120,7 +120,7 @@ const TopBar = () => {
               {TopBarIcons.map((item, i) => {
                 return (
                   <Grid item key={i}>
-                    <Link href={item.path}>
+                    <Link href={item.path} target="_blank">
                       <Image
                         alt={item.title}
                         src={

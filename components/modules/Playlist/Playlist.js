@@ -99,14 +99,14 @@ const Playlist = ({ playlist }) => {
           <Box display="flex" justifyContent="space-around" alignItems="center">
             <Typography variant="h3">Playlist Preview</Typography>
             <Box display="flex" justifyContent="space-around" width="7vw">
-              <Link href={playlist.soundcloud}>
+              <Link href={playlist.soundcloud} target="_blank">
                 <Image
                   src={SoundcloudIconGray}
                   alt="soundcloud"
                   style={{ cursor: 'pointer' }}
                 />
               </Link>
-              <Link href={playlist.bandcamp}>
+              <Link href={playlist.bandcamp} target="_blank">
                 <Image
                   src={BandcampIconGray}
                   alt="bandcamp"
