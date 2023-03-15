@@ -97,6 +97,7 @@ const About = () => {
                     variant="subtitle4"
                     underline="none"
                     href={item.href}
+                    target="_blank"
                   >
                     <Box
                       component="span"
