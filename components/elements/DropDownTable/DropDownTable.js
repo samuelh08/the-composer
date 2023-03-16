@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 
-import { CollapsibleItem } from './components';
+import { CollapsibleItem } from './Components';
 
 const DropDownTable = ({rows, ...props}) => {
   return (
