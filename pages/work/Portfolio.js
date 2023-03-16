@@ -63,11 +63,11 @@ const Work = () => {
   const [open, setOpen] = useState(null);
   const [selection, setSelection] = useState(null);
   const galeryList = PortfolioListGalery || [];
-  const { project, setProject } = useProjectContext()
+  const { project, setProject } = useProjectContext();
 
   const handleClick = (e) => {
-    const filterby = e.target.innerText.toLowerCase()
-    setFiltered(filterby)
+    const filterby = e.target.innerText.toLowerCase();
+    setFiltered(filterby);
   }
 
   const bringObject = useCallback(async() => {
@@ -78,15 +78,24 @@ const Work = () => {
   }, [project]) 
 
   useEffect(() => {
+    const project = JSON.parse(localStorage.getItem('project'));
+    if (project) {
+      setProject(project);
+      localStorage.setItem('project', JSON.stringify(null));
+    }
+  }, [])
+
+  useEffect(() => {
     if (project !== null) {
       bringObject();
-      setOpen(true);
+      setTimeout(() => {
+        setOpen(true);
+      }, 500)
     }
   }, [project])
 
   useEffect(() =>{
     if (open === false) {
-      setProject(null);
       setSelection(null);
     }
   }, [open])

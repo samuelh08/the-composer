@@ -24,6 +24,11 @@ const Home = () => {
     }
   }, [videoClicked]);
 
+  const handleClickProject = (index) => {
+    localStorage.setItem('project', JSON.stringify(index))
+    window.location.href = "/work"
+  }
+
   return (
     <>
       <Box
@@ -113,7 +118,7 @@ const Home = () => {
       </Grid>
       <Carousel
         CarouselListGallery={CarouselListGallery}
-        handleClick={() => {}}
+        handleClick={(index) => handleClickProject(index)}
       />
       <Box bgcolor="#000">
         <Grid container justifyContent="center" paddingY="30vh">
