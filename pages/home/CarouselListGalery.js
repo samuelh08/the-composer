@@ -10,8 +10,8 @@ import FallingStarBanner from 'assets/Portfolio/FallingStar/FallingStarImageTiny
 import FallingStarSample from 'assets/Portfolio/FallingStar/FallingStarMuestra.mp3';
 import AlkymBanner from 'assets/Portfolio/Alkym/AlkymIconTiny.png';
 import AlkymSample from 'assets/Portfolio/Alkym/AlkymMuestra.mp3';
-import AftermathBanner from 'assets/Portfolio/AftermathOfBattle/AftermathOfBattleImageTiny.png';
-import AftermathSample from 'assets/Portfolio/AftermathOfBattle/AftermathOfBattleMuestra.mp3';
+import AftermathBanner from 'assets/Portfolio/Aftermathofbattle/AftermathOfBattleImageTiny.png';
+import AftermathSample from 'assets/Portfolio/Aftermathofbattle/AftermathOfBattleMuestra.mp3';
 import MonsterBanner from 'assets/Portfolio/MonsterHunterWorld/MonsterHunterImageTiny.png';
 import MonsterSample from 'assets/Portfolio/MonsterHunterWorld/MonsterHunterMuestra.mp3';
 import AnnoBanner from 'assets/Portfolio/AnnoMutationem/AnnoMutationemImageTiny.png';
