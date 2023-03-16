@@ -49,7 +49,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
+    color: #fff;
     background: black;
   }
 }
@@ -60,7 +60,7 @@ a {
 
 .achievement-list li::before {
   content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: white; /* Change the color */
+  color: #fff; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
@@ -73,7 +73,7 @@ a {
 
 .home-list li::before {
   content: '\2013';
-  color: white;
+  color: #fff;
   display: inline-block;
   width: 1em;
   margin-left: -1em;
@@ -86,12 +86,8 @@ a {
 }
 
 .active-footer {
-  background: white;
-  color: #000;
-}
-
-.active-footer .css-10pt980-MuiTypography-root {
-  color: #000;
+  background: #000;
+  color: #fff;
 }
 
 .footer-title .css-10pt980-MuiTypography-root {
