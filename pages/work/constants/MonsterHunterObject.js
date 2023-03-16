@@ -1,23 +1,14 @@
-import Banner from "assets/Portfolio/MonsterHunterWorld(Reimagined)/MonsterHunterImageTiny.png";
-import Short from "assets/Portfolio/MonsterHunterWorld(Reimagined)/MonsterHunter.mp4"
-import Sample from "assets/Portfolio/MonsterHunterWorld(Reimagined)/MonsterHunterMuestra.mp3"
+import image from "assets/Portfolio/MonsterHunterWorld/MonsterHunterImageTiny.png";
+import Short from "assets/Portfolio/MonsterHunterWorld/MonsterHunterTiny.mp4";
 
-import sample1 from "assets/Portfolio/MonsterHunterWorld(Reimagined)/SoundtrackPreview/ANewExpedition(Preview).mp3"
-import sample2 from "assets/Portfolio/MonsterHunterWorld(Reimagined)/SoundtrackPreview/ChaseThyPrey(Preview).mp3"
-import sample3 from "assets/Portfolio/MonsterHunterWorld(Reimagined)/SoundtrackPreview/SiezeYourTriumph(Preview).mp3"
-import sample4 from "assets/Portfolio/MonsterHunterWorld(Reimagined)/SoundtrackPreview/TheHuntBegins(Preview).mp3"
+import sample1 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/ANewExpedition(Preview).mp3";
+import sample2 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/ChaseThyPrey(Preview).mp3";
+import sample3 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/SiezeYourTriumph(Preview).mp3";
+import sample4 from "assets/Portfolio/MonsterHunterWorld/SoundtrackPreview/TheHuntBegins(Preview).mp3";
 
-const MonsterHunterWorldObject = {
-  display:{
-    title: "Monster Hunter World (Reimagined)",
-    category: 'VIDEOGAMES',
-    src: Banner,
-    altText: 'Icon of Monster Hunter World (Reimagined)',
-    audio: Sample
-  },
+const MonsterHunterObject = {
   title: "Monster Hunter World (Reimagined)",
   quote: "…enjoy the ultimate hunting experience! Use everything at your disposal to hunt monsters in a new world teeming with surprises and excitement.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
@@ -70,4 +61,4 @@ const MonsterHunterWorldObject = {
   ]
 }
 
-export default MonsterHunterWorldObject;
+export default MonsterHunterObject;

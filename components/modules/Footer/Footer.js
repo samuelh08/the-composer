@@ -39,7 +39,7 @@ const Footer = () => {
   }, [activeClipBoard]);
 
   return (
-    <Box bgcolor="#000">
+    <Box bgcolor="#000" position='relative'>
       <Grid container sx={{ paddingBottom: 6 }}>
         {FooterMenu.map((item, i) => {
           return (
@@ -49,14 +49,14 @@ const Footer = () => {
               sx={{
                 borderBottom: '1px solid white',
                 paddingLeft: '8%',
-                cursor: pathname === item.path ? '' : 'pointer',
+                cursor: pathname === item.path ? 'regular' : 'pointer',
               }}
               className={
                 pathname === item.path ? 'active-footer' : 'footer-title'
               }
               key={i}
               onClick={() => {
-                push(item.path);
+                window.location.href=item.path
               }}
             >
               <Box
@@ -86,10 +86,10 @@ const Footer = () => {
                 >
                   <Typography
                     variant="subtitle5"
-                    color="secondary"
+                    color={pathname === item.path ? "primary" : "secondary"}
                     sx={{ textTransform: 'uppercase' }}
                   >
-                    {item.sub}
+                    {pathname === item.path ? 'YOU ARE HERE' : item.sub}
                   </Typography>
                 </Box>
               </Box>
@@ -174,9 +174,9 @@ const Footer = () => {
             position: 'absolute',
             top:
               clipboardRef.current &&
-              clipboardRef.current.offsetTop + 50 + 'px',
+              clipboardRef.current.offsetTop + 'px',
             left: mousePos.x + 'px',
-            zIndex: '50',
+            zIndex: '90',
             backgroundColor: theme.palette.secondary.main,
           }}
           className={activeClipBoard ? 'clip-board' : ''}

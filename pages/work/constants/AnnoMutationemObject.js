@@ -1,25 +1,14 @@
-import { lazy } from "react";
+import image from "assets/Portfolio/AnnoMutationem/AnnoMutationemImageTiny.png";
+import Short from "assets/Portfolio/AnnoMutationem/AnnoMutationemTiny.mp4";
 
-const Banner = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationemImageTiny.png"));
-const Short = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationem.mp4"));
-const Sample = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/AnnoMutationemMuestra.mp3"));
-
-const sample1 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/SetThingsInMotion(Preview).mp3"));
-const sample2 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/NeonMetropolis(Preview).mp3"));
-const sample3 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/LateNightCity(Preview).mp3"));
-const sample4 = lazy(() => import("assets/Portfolio/AnnoMutationem(Reimagined)/SoundtrackPreview/LateNightBar(Preview).mp3"));
+import sample1 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/SetThingsInMotion(Preview).mp3";
+import sample2 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/NeonMetropolis(Preview).mp3";
+import sample3 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/LateNightCity(Preview).mp3";
+import sample4 from "assets/Portfolio/AnnoMutationem/SoundtrackPreview/LateNightBar(Preview).mp3";
 
 const AnnoMutationemObject = {
-  display:{
-    title: "Anno Mutationem (Reimagined)",
-    category: 'VIDEOGAMES',
-    src: Banner,
-    altText: 'Icon of Anno Mutationem (Reimagined)',
-    audio: Sample
-  },
   title: "Anno Mutationem (Reimagined)",
   quote: "…Become Ann: a highly-skilled combat-trained lone wolf on a personal mission in this action-adventure game with RPG elements set in a cyberpunk world.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[

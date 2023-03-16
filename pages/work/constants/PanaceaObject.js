@@ -1,6 +1,5 @@
-import Banner from "assets/Portfolio/Panacea/PanaceaImageTiny.png";
-import Short from "assets/Portfolio/Panacea/Panacea.mp4"
-import Sample from "assets/Portfolio/Panacea/PanaceaMuestra.mp3"
+import Short from "assets/Portfolio/Panacea/PanaceaTiny.mp4";
+import image from "assets/Portfolio/Panacea/PanaceaImageTiny.png";
 
 import sample1 from "assets/Portfolio/Panacea/SoundtrackPreview/PanaceaBeach(Preview).mp3"
 import sample2 from "assets/Portfolio/Panacea/SoundtrackPreview/PanaceaCombatTheme(Preview).mp3"
@@ -11,16 +10,8 @@ import sample6 from "assets/Portfolio/Panacea/SoundtrackPreview/Rona'sRage(Previ
 import sample7 from "assets/Portfolio/Panacea/SoundtrackPreview/Rona'sTheme(Preview).mp3"
 
 const PanaceaObject = {
-  display:{
-    title: "Panacea",
-    category: 'VIDEOGAMES',
-    src: Banner,
-    altText: 'Icon of Panacea',
-    audio: Sample
-  },
   title: "Panacea",
   quote: "A turn-based RPG following three professionals as they traverse the virus-ridden island in search of the source of malice.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[

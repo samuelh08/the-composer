@@ -1,22 +1,12 @@
-import { lazy } from 'react';
-
-const Banner = lazy(() => import("assets/Portfolio/Serenidad/SerenidadImage.png"));
-const image = lazy(() => import("assets/Portfolio/Serenidad/SerenidadIconTiny.png"));
-const Short = lazy(() => import("assets/Portfolio/Serenidad/Serenidad.mp4"));
-const Sample = lazy(() => import("assets/Portfolio/Serenidad/SerenidadMuestra.mp3"));
-
+//import Banner from "assets/Portfolio/Serenidad/SerenidadImage.png";
+import image from "assets/Portfolio/Serenidad/SerenidadIconTiny.png";
+import Sample from "assets/Portfolio/Serenidad/SerenidadMuestra.mp3";
+import Short from "assets/Portfolio/Serenidad/SerenidadTiny.mp4";
 
 const SerenidadObject = {
-  display:{
-    title: "Serenidad",
-    category: 'FILM & ANIMATION',
-    src: image,
-    altText: 'Icon of Serenidad',
-    audio: Sample
-  },
   title: "Serenidad",
   quote: "As the spring comes, her serenity frames itself…",
-  banner: Banner,
+  banner: image,
   short: Short,
   firstSection: {
     left:[

@@ -1,19 +1,10 @@
-import { lazy } from 'react';
-
-const Banner = lazy(() => ("assets/Portfolio/Rebot/RebotImageTiny.png"));
-const image = lazy(() => ("assets/Portfolio/Rebot/RebotIconTiny.png"));
-const Short = lazy(() => ("assets/Portfolio/Rebot/Rebot.mp4"));
-const Sample = lazy(() => ("assets/Portfolio/Rebot/RebotMuestra.mp3"));
+import Banner from "assets/Portfolio/Rebot/RebotImageTiny.png";
+import image from "assets/Portfolio/Rebot/RebotIconTiny.png";
+import Sample from "assets/Portfolio/Rebot/RebotMuestra.mp3";
+import Short from "assets/Portfolio/Rebot/RebotTiny.mp4";
 
 
 const RebotObject = {
-  display:{
-    title: "Rebot",
-    category: 'SOUND DESIGN',
-    src: image,
-    altText: 'Icon of Rebot',
-    audio: Sample
-  },
   title: "Rebot",
   quote: "Help “Fix” repair itself by collecting bolts as you progress in this infinite scroller game. Enjoy the 20's aesthetic while you play this vintage inspired video game.",
   banner: Banner,

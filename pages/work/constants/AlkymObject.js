@@ -1,21 +1,11 @@
-import { lazy } from 'react';
-
-const Banner = lazy(() => import("assets/Portfolio/Alkym/AlkymIconTiny.png"));
-const Short = lazy(() => import("assets/Portfolio/Alkym/Alkym.mp4"));
-const Sample = lazy(() => import("assets/Portfolio/Alkym/AlkymMuestra.mp3"));
+import image from "assets/Portfolio/Alkym/AlkymIconTiny.png";
+import Sample from "assets/Portfolio/Alkym/AlkymMuestra.mp3";
+import Short from "assets/Portfolio/Alkym/AlkymTiny.mp4";
 
 
 const AlkymObject = {
-  display:{ 
-    title: "Alkym",
-    category: 'VIDEOGAMES, SOUND DESIGN',
-    src: Banner,
-    altText: 'Icon of Alkym',
-    audio: Sample
-  },
   title: "Alkym",
   quote: "Test your skills on this platform game by overcoming the four elements through the power of alchemy.",
-  banner: Banner,
   short: Short,
   firstSection: {
     left:[
