@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import LazyLoad from 'react-lazyload';
 
 import Image from 'next/image';
@@ -15,12 +15,27 @@ import Carousel from "components/modules/Carousel";
 import ArrowLink from "assets/img/ArrowLink-black.svg";
 import arrow from 'assets/img/ArrowReel-01.svg';
 import ArrowWhite from "assets/img/ArrowLink-01.svg";
+import { useProjectContext } from "context/ModalContext";
 
 const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
 
   const [activeItem, setActiveItem] = useState(null);
   const [showControls, setShowControls] = useState(false);
   const [videoFinished, setVideoFinished] = useState(false);
+  const { setProject } = useProjectContext();
+  const videoRef = useRef(null);
+
+  const handleStopVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  }
+
+  const handleClick = (index) => {
+    handleStopVideo();
+    setProject(index);
+    handleClose();
+  }
 
   return (
     project && <PortfolioWrapper open={open} handleClose={handleClose}>
@@ -29,7 +44,7 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
         sx={{ position: "relative", maxHeight:"100vh", height:"100vh", backgroundColor: "#000", position: "relative" }}
       >
         <LazyLoad once>
-          <video autoPlay controls={showControls} width="100%" height='90%' onEnded={() => setVideoFinished(true)} style={{position: "absolute"}}>
+          <video ref={videoRef} autoPlay controls={showControls} width="100%" height='90%' onEnded={() => setVideoFinished(true)} style={{position: "absolute"}}>
             <source src={project.short} type="video/mp4" />
           </video>
         </LazyLoad>
@@ -191,7 +206,7 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
           </a>
         </Grid>
         <Grid item sx={{padding: "1vw"}} xs={12}>
-          <Carousel CarouselListGallery={carouselImages} handleClick={() => {}}/>
+          <Carousel CarouselListGallery={carouselImages} handleClick={(index) => handleClick(index)}/>
         </Grid>
       </Grid>
     </PortfolioWrapper>
