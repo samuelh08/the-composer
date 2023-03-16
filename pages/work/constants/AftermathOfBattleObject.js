@@ -1,6 +1,6 @@
-import image from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleImageTiny.png";
-import Sample from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleMuestra.mp3";
-import Short from "assets/Portfolio/AftermathOfBattle/AftermathOfBattleTiny.mp4";
+import image from "assets/Portfolio/AftermathOfBattle/AftermathofbattleImageTiny.png";
+import Sample from "assets/Portfolio/AftermathOfBattle/AftermathofbattleMuestra.mp3";
+import Short from "assets/Portfolio/AftermathOfBattle/AftermathofbattleTiny.mp4";
 
 
 const AftermathOfBattleObject = {
