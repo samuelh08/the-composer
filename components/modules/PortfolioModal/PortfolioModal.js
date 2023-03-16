@@ -13,6 +13,7 @@ import Playlist from "components/modules/Playlist";
 import TopBarIcons from "components/modules/TopBar/constants/TopBarIcons";
 import Carousel from "components/modules/Carousel";
 import ArrowLink from "assets/img/ArrowLink-black.svg";
+import arrow from 'assets/img/ArrowReel-01.svg';
 import ArrowWhite from "assets/img/ArrowLink-01.svg";
 
 const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
@@ -32,7 +33,24 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
             <source src={project.short} type="video/mp4" />
           </video>
         </LazyLoad>
-        {/* <Typography variant="subtitle5" sx={{zIndex: 99, position: "absolute", bottom: "20px"}}>SCROLL <span ><Image src={Arrow} alt={"Arrow down"} /></span> FOR MORE</Typography> */}
+        <Box
+          width="100%"
+          position="absolute"
+          textAlign="center"
+          justifyContent="center"
+          bottom={30}
+          display={'flex'}
+        >
+          <Typography variant="subtitle4" color="white">
+            SCROLL
+          </Typography>
+          <Box marginX="2rem">
+            <Image src={arrow} alt="arrow" />
+          </Box>
+          <Typography variant="subtitle4" color="white">
+            FOR MORE
+          </Typography>
+        </Box>
       </Box>
       <Grid container spacing={4} sx={{ marginY: "6vw", paddingX: "4vw" }}>
         <Grid item xs={12} sx={{ paddingY: "8vw" }}>
@@ -88,7 +106,7 @@ const PortfolioModal = ({ project, open, handleClose, carouselImages }) => {
         </Grid>
         <Grid item xs={12} sx={{ marginBottom: "10vw" }}>
           <Box display="flex" justifyContent="center">
-            <Typography sx={{ lineHeight: "144pt", fontSize: "7.5rem" }}>{project.secondSection.title}</Typography>
+            <Typography sx={{ lineHeight: "144pt", fontSize: "7.5vw" }}>{project.secondSection.title}</Typography>
           </Box>
         </Grid>
         <Grid item xs={5} paddingTop={9}>
