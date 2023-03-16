@@ -18,13 +18,13 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
   const [playing, setPlaying] = useState(false);
   const [current, setCurrent] = useState(0);
 
+  const wrapper = useRef(null);
   const carousel = useRef(null);
   const content = useRef(null);
 
   useEffect(() => {
-    const element = carousel.current;
     const handleResize = (event) => {
-      element.scrollLeft = slide * (window.innerWidth * 0.81);
+      carousel.current.scrollLeft = slide * carousel.current.clientWidth;
     };
     addEventListener('resize', handleResize);
     return () => {
@@ -53,14 +53,14 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
   const handleClickNext = () => {
     setClicked('right');
     setSlide(slide + 1);
-    carousel.current.scrollLeft = (slide + 1) * (window.innerWidth * 0.81);
+    carousel.current.scrollLeft = (slide + 1) * carousel.current.clientWidth;
     setTimeout(() => setClicked(null), 500);
   };
 
   const handleClickPrev = () => {
     setClicked('left');
     setSlide(slide - 1);
-    carousel.current.scrollLeft = (slide - 1) * (window.innerWidth * 0.81);
+    carousel.current.scrollLeft = (slide - 1) * carousel.current.clientWidth;
     setTimeout(() => setClicked(null), 500);
   };
 
@@ -83,8 +83,9 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
     <>
       <Grid
         container
-        wrap="nowrap"
+        position="relative"
         alignItems="center"
+        width="100%"
         style={{ backgroundColor: '#000000' }}
       >
         <Grid item xs={1} display="flex" justifyContent="center">
@@ -92,7 +93,7 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
             <Image
               alt="previous"
               src={activeElement === 'left' ? ArrowWhite : ArrowGray}
-              width={clicked === 'left' ? '80vw' : '100vw'}
+              width={clicked === 'left' ? '80%' : '100%'}
               hidden={slide === 0 ? 'none' : 'block'}
               style={{
                 cursor: 'pointer',
@@ -106,11 +107,16 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
         <Grid item xs={10} display="flex" justifyContent="center">
           <Box
             id="wrapper"
-            style={{ width: '81vw', maxWidth: '81vw', position: 'relative' }}
+            ref={wrapper}
+            position="relative"
+            display="flex"
+            justifyContent="center"
+            style={{ width: '100%', position: 'relative' }}
           >
             <Box
               id="carousel"
               ref={carousel}
+              width="90%"
               style={{
                 overflow: 'hidden',
                 scrollBehavior: 'smooth',
@@ -120,6 +126,7 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
               <Box
                 id="content"
                 ref={content}
+                position="relative"
                 style={{
                   display: 'grid',
                   gridAutoFlow: 'column',
@@ -130,8 +137,12 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
                 {CarouselListGallery.map(({ item, index }) => (
                   <Box
                     key={index}
-                    marginX="0.5vw"
-                    style={{ width: '26vw', height: '26vw', cursor: 'pointer' }}
+                    marginX={wrapper.current?.clientWidth * 0.0006}
+                    style={{
+                      width: wrapper.current?.clientWidth * 0.29,
+                      height: wrapper.current?.clientWidth * 0.29,
+                      cursor: 'pointer',
+                    }}
                     position="relative"
                     onClick={() => {
                       handleClick(index);
@@ -261,7 +272,7 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
             <Image
               alt="next"
               src={activeElement === 'right' ? ArrowWhite : ArrowGray}
-              width={clicked === 'right' ? '80vw' : '100vw'}
+              width={clicked === 'right' ? '80%' : '100%'}
               style={{
                 transform: 'scaleX(-1)',
                 cursor: 'pointer',
@@ -302,7 +313,7 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
                 onMouseLeave={() => setActiveElement(null)}
                 onClick={() => {
                   carousel.current.scrollLeft =
-                    index * (window.innerWidth * 0.81);
+                    index * carousel.current.clientWidth;
                   setSlide(index);
                 }}
               >
