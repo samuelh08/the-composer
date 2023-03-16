@@ -6,8 +6,8 @@ import DragGallery from 'components/elements/DragGallery';
 import DropDownTable from 'components/elements/DropDownTable';
 import LetsTalk from 'components/modules/LetsTalk';
 
-import DragList from './DragGalleryObject';
-import DropDown from './ServiceTable';
+import DragList from 'constants/DragGalleryObject';
+import DropDown from 'constants/ServiceTable';
 
 import arrow from 'assets/img/ArrowReel-01.svg';
 import Image from 'next/image';

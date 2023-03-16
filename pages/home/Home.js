@@ -6,7 +6,7 @@ import Carousel from 'components/modules/Carousel';
 import LP from 'components/elements/LP';
 import LetsTalk from 'components/modules/LetsTalk';
 
-import CarouselListGallery from './CarouselListGalery';
+import CarouselListGallery from 'constants/CarouselListGalery';
 
 import background from 'assets/Portfolio/MainReelTiny.mp4';
 import arrow from 'assets/img/ArrowReel-01.svg';
@@ -25,9 +25,9 @@ const Home = () => {
   }, [videoClicked]);
 
   const handleClickProject = (index) => {
-    localStorage.setItem('project', JSON.stringify(index))
-    window.location.href = "/work"
-  }
+    localStorage.setItem('project', JSON.stringify(index));
+    window.location.href = '/work';
+  };
 
   return (
     <>
