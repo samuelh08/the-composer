@@ -137,10 +137,20 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
                 {CarouselListGallery.map(({ item, index }) => (
                   <Box
                     key={index}
-                    marginX={wrapper.current?.clientWidth * 0.0006}
+                    marginX={
+                      wrapper.current?.clientWidth === undefined
+                        ? '0.5vw'
+                        : wrapper.current?.clientWidth * 0.0006
+                    }
                     style={{
-                      width: wrapper.current?.clientWidth * 0.29,
-                      height: wrapper.current?.clientWidth * 0.29,
+                      width:
+                        wrapper.current?.clientWidth === undefined
+                          ? '24vw'
+                          : wrapper.current?.clientWidth * 0.29,
+                      height:
+                        wrapper.current?.clientWidth === undefined
+                          ? '24vw'
+                          : wrapper.current?.clientWidth * 0.29,
                       cursor: 'pointer',
                     }}
                     position="relative"
