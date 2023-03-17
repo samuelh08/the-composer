@@ -1,14 +1,14 @@
 @font-face {
   font-family: Hebden Grotesque;
-  src: url('../assets/typography/Hebden_Grotesque.ttf') format('ttf');
+  src: url('/public/typography/Hebden_Grotesque.ttf') format('ttf');
 }
 @font-face {
   font-family: Andale Mono;
-  src: url('../assets/typography/Andale_Mono.ttf') format('ttf');
+  src: url('/public/typography/Andale_Mono.ttf') format('ttf');
 }
 @font-face {
   font-family: Andale Mono Italic;
-  src: url('../assets/typography/Andale_Mono_Italic.ttf') format('ttf');
+  src: url('/public/typography/Andale_Mono_Italic.ttf') format('ttf');
 }
 
 html {
