@@ -144,7 +144,8 @@ const ImageDisplay = ({images, filteredText='all', handleSelection}) => {
                   bgcolor="white"
                   alignContent="center"
                   justifyContent="center"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     togglePlay(item);
                   }}
                 >
