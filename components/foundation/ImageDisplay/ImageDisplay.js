@@ -82,7 +82,7 @@ const ImageDisplay = ({images, filteredText='all', handleSelection}) => {
             position='relative'
             onMouseEnter={() => setActiveElement(item.title)}
             onMouseLeave={() => setActiveElement(null)}
-            onClick={() => handleClick(index)}
+            onClick={(e) => {e.preventDefault(); e.stopPropagation(); handleClick(index)}}
           >
             <Box height="27vw" width="27vw" sx={{position: 'relative'}}>
               <Image
@@ -124,6 +124,10 @@ const ImageDisplay = ({images, filteredText='all', handleSelection}) => {
                 borderRadius="50%"
                 display="inline-block"
                 border="solid white 0.2vw"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  togglePlay(item);
+                }}
                 style={{
                   backgroundColor: 'white',
                   backgroundImage:
@@ -144,10 +148,6 @@ const ImageDisplay = ({images, filteredText='all', handleSelection}) => {
                   bgcolor="white"
                   alignContent="center"
                   justifyContent="center"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    togglePlay(item);
-                  }}
                 >
                   <Grid item xs={3}></Grid>
                   <Grid

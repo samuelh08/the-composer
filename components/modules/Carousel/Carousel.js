@@ -154,7 +154,9 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
                       cursor: 'pointer',
                     }}
                     position="relative"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
                       handleClick(index);
                     }}
                     onMouseEnter={() => setActiveElement(item.title)}
@@ -198,6 +200,11 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
                         borderRadius="50%"
                         display="inline-block"
                         border="solid white 0.2vw"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          togglePlay(item);
+                        }}
                         style={{
                           backgroundColor: 'white',
                           backgroundImage:
@@ -221,10 +228,7 @@ const Carousel = ({ handleClick, CarouselListGallery }) => {
                           bgcolor="white"
                           alignContent="center"
                           justifyContent="center"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            togglePlay(item);
-                          }}
+                          
                         >
                           <Grid item xs={3}></Grid>
                           <Grid
