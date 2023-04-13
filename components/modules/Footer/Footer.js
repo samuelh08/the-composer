@@ -15,7 +15,7 @@ import FooterSocial from './constants/FooterSocial';
 
 const Footer = () => {
   const theme = useTheme();
-  const { push, pathname } = useRouter();
+  const { pathname } = useRouter();
   const clipboardRef = useRef(null);
   const [activeClipBoard, setActiveClipBoard] = useState(false);
   const [mousePos, setMousePos] = useState({});
@@ -39,7 +39,7 @@ const Footer = () => {
   }, [activeClipBoard]);
 
   return (
-    <Box bgcolor="#000" position='relative'>
+    <Box bgcolor="#000" position="relative">
       <Grid container sx={{ paddingBottom: 6 }}>
         {FooterMenu.map((item, i) => {
           return (
@@ -56,7 +56,7 @@ const Footer = () => {
               }
               key={i}
               onClick={() => {
-                window.location.href=item.path
+                window.location.href = item.path;
               }}
             >
               <Box
@@ -86,7 +86,7 @@ const Footer = () => {
                 >
                   <Typography
                     variant="subtitle5"
-                    color={pathname === item.path ? "primary" : "secondary"}
+                    color={pathname === item.path ? 'primary' : 'secondary'}
                     sx={{ textTransform: 'uppercase' }}
                   >
                     {pathname === item.path ? 'YOU ARE HERE' : item.sub}
@@ -172,9 +172,7 @@ const Footer = () => {
             border: '1px solid white',
             textAlign: 'center',
             position: 'absolute',
-            top:
-              clipboardRef.current &&
-              clipboardRef.current.offsetTop + 'px',
+            top: clipboardRef.current && clipboardRef.current.offsetTop + 'px',
             left: mousePos.x + 'px',
             zIndex: '90',
             backgroundColor: theme.palette.secondary.main,
